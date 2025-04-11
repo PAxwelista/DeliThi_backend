@@ -9,6 +9,8 @@ var logger = require("morgan");
 var productsRouter = require("./routes/products");
 var ordersRouter = require("./routes/orders");
 var customersRouter = require("./routes/customers");
+var deliveriesRouter = require("./routes/deliveries");
+var usersRouter = require("./routes/users");
 
 var app = express();
 
@@ -24,5 +26,7 @@ app.use(express.static(path.join(__dirname, "public")));
 app.use("/products", productsRouter);
 app.use("/orders", ordersRouter);
 app.use("/customers", customersRouter);
+app.use("/deliveries", deliveriesRouter);
+app.use("/users", usersRouter);
 
 module.exports = app;
