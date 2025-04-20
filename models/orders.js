@@ -7,6 +7,7 @@ const productSchema = mongoose.Schema({
 
 const orderSchema = mongoose.Schema({
     products: [productSchema],
+    creationDate: Date,
     deliveryDate: Date,
     orderer: String,
     state: String,

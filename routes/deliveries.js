@@ -5,11 +5,17 @@ const { checkBody } = require("../modules/checkBody");
 const Delivery = require("../models/deliveries");
 
 router.get("/", async (req, res) => {
-    const data = await Delivery.find();
-    res.status(200).json({ result: true, data });
+    const deliveries = await Delivery.find().populate({
+        path: "orders",
+        populate: { path: ["products.product", "customer"] },
+    });
+    res.status(200).json({ result: true, deliveries });
 });
 
 router.get("/:id/allProducts", async (req, res) => {
+
+    if (!req.params.id) return res.status(400).json({ result: false, error: "Missing or empty fields" });
+    
     const data = await Delivery.findById(req.params.id).populate({
         path: "orders",
         populate: { path: "products.product" },
@@ -23,11 +29,12 @@ router.get("/:id/allProducts", async (req, res) => {
             };
         })
     );
-    console.log(filteredData.flat());
 
-    const reducedData = filteredData
-        .flat()
-        .reduce((a, {name, quantity}) => (a[name] ? (a[name].quantity += quantity) : (a[name] = {name , quantity}) , a), {});
+    const reducedData = filteredData.flat().reduce((a, { name, quantity }) => {
+        const existing = a.find(item => item.name === name);
+        existing ? (existing.quantity += quantity) : a.push({ name, quantity });
+        return a;
+    }, []);
 
     res.status(200).json({ result: true, totalProduct: reducedData });
 });

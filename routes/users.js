@@ -5,8 +5,9 @@ const bcrypt = require("bcrypt");
 
 const User = require("../models/users");
 
-router.get("/signIn", async (req, res) => {
+router.post("/signIn", async (req, res) => {
     const { username, password } = req.body;
+    console.log(req.body)
     if (!checkBody(req.body, ["username", "password"]))
         return res.status(400).json({ result: false, error: "Missing or empty fields" });
 
