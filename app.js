@@ -11,6 +11,7 @@ var ordersRouter = require("./routes/orders");
 var customersRouter = require("./routes/customers");
 var deliveriesRouter = require("./routes/deliveries");
 var usersRouter = require("./routes/users");
+var directionRouter = require("./routes/direction");
 
 var app = express();
 
@@ -28,5 +29,6 @@ app.use("/orders", ordersRouter);
 app.use("/customers", customersRouter);
 app.use("/deliveries", deliveriesRouter);
 app.use("/users", usersRouter);
+app.use("/direction", directionRouter);
 
 module.exports = app;

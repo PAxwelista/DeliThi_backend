@@ -22,7 +22,6 @@ router.get("/:customer", async (req, res) => {
 
 router.post("/", async (req, res) => {
     const { name, locationName, area, phoneNumber } = req.body;
-    console.log(name)
     if (!checkBody(req.body, ["name", "locationName", "area"]))
         return res.status(400).json({ result: false, error: "Missing or empty fields" });
 

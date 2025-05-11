@@ -47,13 +47,8 @@ router.patch("/state", async (req, res) => {
     if (!checkBody(req.body, ["newState", "ordersID"]))
         return res.status(400).json({ result: false, error: "Missing or empty fields" });
 
-    console.log(ordersID);
-    console.log(newState);
-
     const data = await Order.updateMany({ _id: { $in: ordersID } }, { state: newState });
-
-    console.log(data);
-
+    
     res.status(200).json({ result: true, data });
 });
 
