@@ -14,17 +14,17 @@ router.get("/", async (req, res) => {
 });
 
 router.get("/allAreas", async (req, res) => {
-    let areas = [];
-    const data = await Order.find().populate("customer");
-    areas = data.map(v => v.customer.location.area);
+
+    const data = await Order.find();
+    const areas = data.map(v => v.area);
 
     res.status(200).json({ areas: [...new Set(areas)] }); // supprimer les doublons
 });
 
 router.post("/", async (req, res) => {
-    const { products, orderer, customerId } = req.body;
+    const { products, orderer, customerId, area } = req.body;
 
-    if (!checkBody(req.body, ["products", "orderer", "customerId"]))
+    if (!checkBody(req.body, ["products", "orderer", "customerId", "area"]))
         return res.status(400).json({ result: false, error: "Missing or empty fields" });
 
     const newOrder = new Order({
@@ -34,6 +34,7 @@ router.post("/", async (req, res) => {
         orderer,
         state: "pending",
         customer: customerId,
+        area,
     });
 
     const data = await newOrder.save();
@@ -48,7 +49,29 @@ router.patch("/state", async (req, res) => {
         return res.status(400).json({ result: false, error: "Missing or empty fields" });
 
     const data = await Order.updateMany({ _id: { $in: ordersID } }, { state: newState });
-    
+
+    res.status(200).json({ result: true, data });
+});
+
+router.patch("/deliveryDate", async (req, res) => {
+    const { newDeliveryDate, ordersID } = req.body;
+
+    if (!checkBody(req.body, ["newDeliveryDate", "ordersID"]))
+        return res.status(400).json({ result: false, error: "Missing or empty fields" });
+
+    const data = await Order.updateMany({ _id: { $in: ordersID } }, { deliveryDate: newDeliveryDate });
+
+    res.status(200).json({ result: true, data });
+});
+
+router.patch("/area", async (req, res) => {
+    const { newArea, ordersID } = req.body;
+
+    if (!checkBody(req.body, ["newArea", "ordersID"]))
+        return res.status(400).json({ result: false, error: "Missing or empty fields" });
+
+    const data = await Order.updateMany({ _id: { $in: ordersID } }, { area: newArea });
+
     res.status(200).json({ result: true, data });
 });
 

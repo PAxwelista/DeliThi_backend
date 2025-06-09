@@ -21,7 +21,8 @@ router.get("/:customer", async (req, res) => {
 // });
 
 router.post("/", async (req, res) => {
-    const { name, locationName, area, phoneNumber } = req.body;
+    const { name, locationName, area, phoneNumber ,email} = req.body;
+    console.log(name)
     if (!checkBody(req.body, ["name", "locationName", "area"]))
         return res.status(400).json({ result: false, error: "Missing or empty fields" });
 
@@ -32,14 +33,15 @@ router.post("/", async (req, res) => {
     const location = await locationData.json();
 
     const newCustomer = new Customer({
-        name: name,
+        name,
         location: {
             name: locationName,
-            area: area,
+            area,
             longitude: location.features[0].geometry.coordinates[0],
             latitude: location.features[0].geometry.coordinates[1],
         },
-        phoneNumber: phoneNumber,
+        phoneNumber,
+        email 
     });
     data = await newCustomer.save();
     res.status(201).json({ result: true, data });
