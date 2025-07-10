@@ -1,11 +1,15 @@
 var express = require("express");
 var router = express.Router();
 const { checkBody } = require("../modules/checkBody");
+const { groupId } = require("../middleware");
 
 const Delivery = require("../models/deliveries");
 
+router.use(groupId)
+
 router.get("/", async (req, res) => {
-    const deliveries = await Delivery.find().populate({
+    const {groupId} = req
+    const deliveries = await Delivery.find({groupId}).populate({
         path: "orders",
         populate: { path: ["products.product", "customer"] },
     });
@@ -39,7 +43,8 @@ router.get("/:id/allProducts", async (req, res) => {
 });
 
 router.get("/actualDelivery", async (req, res) => {
-    const deliveries = await Delivery.findOne({ state: "processing" }).populate({
+    const {groupId} = req
+    const deliveries = await Delivery.findOne({groupId, state: "processing" }).populate({
         path: "orders",
         populate: { path: ["products.product", "customer"] },
     });
@@ -50,15 +55,16 @@ router.get("/actualDelivery", async (req, res) => {
 });
 
 router.post("/", async (req, res) => {
-    const { ordersID } = req.body;
+    const { ordersID,groupId } = req.body;
 
-    if (!checkBody(req.body, ["ordersID"]))
+    if (!checkBody(req.body, ["ordersID" ,"groupId"]))
         return res.status(400).json({ result: false, error: "Missing or empty fields" });
 
     const newDelivery = new Delivery({
         orders: ordersID,
         deliveryDate: new Date(),
         state: "pending",
+        groupId,
     });
 
     const data = await newDelivery.save();

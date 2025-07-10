@@ -12,7 +12,8 @@ const orderSchema = mongoose.Schema({
     orderer: String,
     state: String,
     customer: { type: mongoose.Schema.Types.ObjectId, ref: "customers" },
-    area: String
+    area: String,
+    groupId: String,
 });
 
 const Order = mongoose.model("orders", orderSchema);

@@ -1,28 +1,34 @@
 var express = require("express");
 var router = express.Router();
 const { checkBody } = require("../modules/checkBody");
+const { groupId } = require("../middleware");
 
 const Order = require("../models/orders");
 
+router.use(groupId);
+
 router.get("/", async (req, res) => {
+    const { groupId } = req;
     const { area, state } = req.query;
-    const data = await Order.find(state ? { state } : {})
+
+    const data = await Order.find(state ? { state, groupId } : { groupId })
         .populate("customer")
         .populate({ path: "products.product" });
-    const filteredData = area ? data.filter(v => v.customer.location.area === area) : data;
-    res.status(200).json({ orders: filteredData });
+    const filteredData = area ? data.filter(v => v.area === area) : data;
+    res.status(200).json({result:true, orders: filteredData });
 });
 
 router.get("/allAreas", async (req, res) => {
-
-    const data = await Order.find();
+    const { groupId } = req;
+    const data = await Order.find({groupId});
     const areas = data.map(v => v.area);
 
     res.status(200).json({ areas: [...new Set(areas)] }); // supprimer les doublons
 });
 
 router.post("/", async (req, res) => {
-    const { products, orderer, customerId, area } = req.body;
+    const groupId = req
+    const { products, orderer, customerId, area  } = req.body;
 
     if (!checkBody(req.body, ["products", "orderer", "customerId", "area"]))
         return res.status(400).json({ result: false, error: "Missing or empty fields" });
@@ -35,6 +41,7 @@ router.post("/", async (req, res) => {
         state: "pending",
         customer: customerId,
         area,
+        groupId,
     });
 
     const data = await newOrder.save();

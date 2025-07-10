@@ -12,6 +12,7 @@ const customerSchema = mongoose.Schema({
     location: locationSchema,
     phoneNumber: String,
     email: String,
+    groupId: String,
 });
 
 const Customer = mongoose.model("customers", customerSchema);

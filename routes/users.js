@@ -7,16 +7,21 @@ const User = require("../models/users");
 
 router.post("/signIn", async (req, res) => {
     const { username, password } = req.body;
-    console.log(req.body)
     if (!checkBody(req.body, ["username", "password"]))
         return res.status(400).json({ result: false, error: "Missing or empty fields" });
 
-    const data =  await User.findOne({ username  : {"$regex" : username , $options : 'i' }})
+    const data = await User.findOne({ username: { $regex: `^${username}$`  , $options: "i" } });
 
-    if (data   && bcrypt.compareSync(password, data.password)) {
-        res.status(200).json({ result: true });
+
+
+    if (data && bcrypt.compareSync(password, data.password)) {
+
+        res.status(200).json({
+            result: true,
+            login: { username: data.username, groupId: data.groupId, role: data.role },
+        });
     } else {
-        res.status(400).json({ result: false , error : "Password wrong or username doesn't exist" });
+        res.status(400).json({ result: false, error: "Password wrong or username doesn't exist" });
     }
 });
 
@@ -25,7 +30,7 @@ router.post("/signUp", async (req, res) => {
     if (!checkBody(req.body, ["username", "password"]))
         return res.status(400).json({ result: false, error: "Missing or empty fields" });
 
-    const UserData = await User.findOne({ username })
+    const UserData = await User.findOne({ username });
 
     if (UserData) return res.status(409).json({ result: false, error: "Username already used" });
 
