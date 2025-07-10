@@ -14,9 +14,11 @@ router.get("/", async (req, res) => {
     const data = await Order.find(state ? { state, groupId } : { groupId })
         .populate("customer")
         .populate({ path: "products.product" });
+        
     const filteredData = area ? data.filter(v => v.area === area) : data;
-    res.status(200).json({result:true, orders: filteredData });
-});
+
+    res.status(200).json({result:true, orders : filteredData });
+});   
 
 router.get("/allAreas", async (req, res) => {
     const { groupId } = req;
@@ -27,7 +29,8 @@ router.get("/allAreas", async (req, res) => {
 });
 
 router.post("/", async (req, res) => {
-    const groupId = req
+    const {groupId} = req
+
     const { products, orderer, customerId, area  } = req.body;
 
     if (!checkBody(req.body, ["products", "orderer", "customerId", "area"]))

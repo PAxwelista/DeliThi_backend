@@ -26,8 +26,9 @@ router.get("/:customer", async (req, res) => {
 // });
 
 router.post("/", async (req, res) => {
-    const { name, locationName, area, phoneNumber, email ,groupId } = req.body;
-    if (!checkBody(req.body, ["name", "locationName", "area","groupId"]))
+    const {groupId} = req
+    const { name, locationName, area, phoneNumber, email  } = req.body;
+    if (!checkBody(req.body, ["name", "locationName", "area"]))
         return res.status(400).json({ result: false, error: "Missing or empty fields" });
 
     if ((test = await Customer.findOne({ name: { $regex: name, $options: "i" } })))
