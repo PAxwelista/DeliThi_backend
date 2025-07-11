@@ -23,7 +23,10 @@ router.get("/:product", async (req, res) => {
 router.post("/", async (req, res) => {
     const { groupId } = req;
     const { name, price } = req.body;
-    if (!checkBody(req.body, ["name", "groupId"]))
+
+    console.log(name, price, groupId);
+
+    if (!checkBody(req.body, ["name", "price"]))
         return res.status(400).json({ result: false, error: "Missing or empty fields" });
 
     const data = await Product.findOne({ groupId, name: { $regex: name, $options: "i" } });
@@ -33,12 +36,12 @@ router.post("/", async (req, res) => {
     const newProduct = new Product({ name, price, groupId });
 
     newDoc = await newProduct.save();
-    res.status(201).json({ result: true });
+    res.status(201).json({ result: true, data: newDoc });
 });
 
 router.delete("/:product", async (req, res) => {
-    const {groupId} = req
-    await Product.deleteOne({groupId, name: req.params.name });
+    const { groupId } = req;
+    await Product.deleteOne({ groupId, name: req.params.name });
 
     res.status(200).json({ result: true });
 });

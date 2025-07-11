@@ -55,9 +55,10 @@ router.get("/actualDelivery", async (req, res) => {
 });
 
 router.post("/", async (req, res) => {
-    const { ordersID,groupId } = req.body;
+    const {groupId} = req
+    const { ordersID } = req.body;
 
-    if (!checkBody(req.body, ["ordersID" ,"groupId"]))
+    if (!checkBody(req.body, ["ordersID"]))
         return res.status(400).json({ result: false, error: "Missing or empty fields" });
 
     const newDelivery = new Delivery({
