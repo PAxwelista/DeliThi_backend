@@ -2,6 +2,8 @@ var express = require("express");
 var router = express.Router();
 const { checkBody } = require("../modules/checkBody");
 const bcrypt = require("bcrypt");
+const uid2 = require('uid2');
+
 
 const User = require("../models/users");
 
@@ -10,12 +12,9 @@ router.post("/signIn", async (req, res) => {
     if (!checkBody(req.body, ["username", "password"]))
         return res.status(400).json({ result: false, error: "Missing or empty fields" });
 
-    const data = await User.findOne({ username: { $regex: `^${username}$`  , $options: "i" } });
-
-
+    const data = await User.findOne({ username: { $regex: `^${username}$`, $options: "i" } });
 
     if (data && bcrypt.compareSync(password, data.password)) {
-
         res.status(200).json({
             result: true,
             login: { username: data.username, groupId: data.groupId, role: data.role },
@@ -26,22 +25,30 @@ router.post("/signIn", async (req, res) => {
 });
 
 router.post("/signUp", async (req, res) => {
-    const { username, password } = req.body;
-    if (!checkBody(req.body, ["username", "password"]))
+    const { username, password, groupId, newGroup } = req.body;
+    if (!checkBody(req.body, ["username", "password", "groupId", "newGroup"]))
         return res.status(400).json({ result: false, error: "Missing or empty fields" });
 
     const UserData = await User.findOne({ username });
 
     if (UserData) return res.status(409).json({ result: false, error: "Username already used" });
 
+    groupId = newGroup ? uid2(32)  : groupId
+
     const newUser = User({
         username,
         password: bcrypt.hashSync(password, 10),
+        groupId,
+        role : newGroup ? "admin" : "user"
     });
 
     const data = await newUser.save();
 
-    res.status(201).json({ result: true, data });
+    res.status(201).json({
+        result: true,
+        data,
+        login: { username: data.username, groupId: data.groupId, role: data.role },
+    });
 });
 
 module.exports = router;
