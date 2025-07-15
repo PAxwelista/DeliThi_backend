@@ -14,6 +14,7 @@ const orderSchema = mongoose.Schema({
     customer: { type: mongoose.Schema.Types.ObjectId, ref: "customers" },
     area: String,
     groupId: String,
+    amountPaid : Number,
 });
 
 const Order = mongoose.model("orders", orderSchema);

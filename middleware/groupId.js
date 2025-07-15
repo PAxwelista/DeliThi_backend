@@ -2,7 +2,7 @@ function groupId(req, res, next) {
     const groupId = req.headers["group-id"];
 
     if (!groupId) {
-        return res.status(400).json({result :false ,  error: "Missing groupeId" });
+        return res.status(400).json({result :false ,  error: "Missing group-id" });
     }
 
     req.groupId = groupId;

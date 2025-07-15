@@ -14,24 +14,24 @@ router.get("/", async (req, res) => {
     const data = await Order.find(state ? { state, groupId } : { groupId })
         .populate("customer")
         .populate({ path: "products.product" });
-        
+
     const filteredData = area ? data.filter(v => v.area === area) : data;
 
-    res.status(200).json({result:true, orders : filteredData });
-});   
+    res.status(200).json({ result: true, orders: filteredData });
+});
 
 router.get("/allAreas", async (req, res) => {
     const { groupId } = req;
-    const data = await Order.find({groupId});
+    const data = await Order.find({ groupId });
     const areas = data.map(v => v.area);
 
     res.status(200).json({ areas: [...new Set(areas)] }); // supprimer les doublons
 });
 
 router.post("/", async (req, res) => {
-    const {groupId} = req
+    const { groupId } = req;
 
-    const { products, orderer, customerId, area  } = req.body;
+    const { products, orderer, customerId, area } = req.body;
 
     if (!checkBody(req.body, ["products", "orderer", "customerId", "area"]))
         return res.status(400).json({ result: false, error: "Missing or empty fields" });
@@ -74,13 +74,13 @@ router.patch("/deliveryDate", async (req, res) => {
     res.status(200).json({ result: true, data });
 });
 
-router.patch("/area", async (req, res) => {
-    const { newArea, ordersID } = req.body;
+router.patch("/:id", async (req, res) => {
+    const { area, deliveryDate, state, amountPaid } = req.body;
+    const updateData = { area, deliveryDate, state, amountPaid };
 
-    if (!checkBody(req.body, ["newArea", "ordersID"]))
-        return res.status(400).json({ result: false, error: "Missing or empty fields" });
+    const filtered = Object.fromEntries(Object.entries(updateData).filter(([key, value]) => value));
 
-    const data = await Order.updateMany({ _id: { $in: ordersID } }, { area: newArea });
+    const data = await Order.updateOne({ _id: req.params.id }, { $set: filtered });
 
     res.status(200).json({ result: true, data });
 });
