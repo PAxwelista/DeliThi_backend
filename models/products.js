@@ -3,7 +3,7 @@ const mongoose = require("mongoose");
 const productSchema = mongoose.Schema({
     name: String,
     price: Number,
-    groupId: String,
+    group: { type: mongoose.Schema.Types.ObjectId, ref: "group" },
 });
 
 const Product = mongoose.model("products", productSchema);

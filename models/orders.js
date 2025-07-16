@@ -13,7 +13,7 @@ const orderSchema = mongoose.Schema({
     state: String,
     customer: { type: mongoose.Schema.Types.ObjectId, ref: "customers" },
     area: String,
-    groupId: String,
+    group: { type: mongoose.Schema.Types.ObjectId, ref: "group" },
     amountPaid : Number,
 });
 

@@ -1,47 +1,45 @@
 var express = require("express");
 var router = express.Router();
 const { checkBody } = require("../modules/checkBody");
-const { groupId } = require("../middleware");
+const { auth } = require("../middlewares");
 
 const Product = require("../models/products");
 
-router.use(groupId);
+router.use(auth);
 
 router.get("/", async (req, res) => {
-    const { groupId } = req;
-    const data = await Product.find({ groupId });
+    const { group } = req;
+    const data = await Product.find({ group });
     res.json({ products: data });
 });
 
 //not really usefull
 router.get("/:product", async (req, res) => {
-    const { groupId } = req;
-    const data = await Product.findOne({ groupId, name: { $regex: req.params.product, $option: "i" } });
+    const { group } = req;
+    const data = await Product.findOne({ group, name: { $regex: req.params.product, $option: "i" } });
     res.status(200).json({ product: data });
 });
 
 router.post("/", async (req, res) => {
-    const { groupId } = req;
+    const { group } = req;
     const { name, price } = req.body;
-
-    console.log(name, price, groupId);
 
     if (!checkBody(req.body, ["name", "price"]))
         return res.status(400).json({ result: false, error: "Missing or empty fields" });
 
-    const data = await Product.findOne({ groupId, name: { $regex: name, $options: "i" } });
+    const data = await Product.findOne({ group, name: { $regex: name, $options: "i" } });
 
     if (data) return res.status(409).json({ result: false, error: "Product already exist" });
 
-    const newProduct = new Product({ name, price, groupId });
+    const newProduct = new Product({ name, price, group });
 
     newDoc = await newProduct.save();
     res.status(201).json({ result: true, data: newDoc });
 });
 
 router.delete("/:product", async (req, res) => {
-    const { groupId } = req;
-    await Product.deleteOne({ groupId, name: req.params.name });
+    const { group } = req;
+    await Product.deleteOne({ group, name: req.params.name });
 
     res.status(200).json({ result: true });
 });

@@ -1,15 +1,15 @@
 var express = require("express");
 var router = express.Router();
 const { checkBody } = require("../modules/checkBody");
-const { groupId } = require("../middleware");
+const { auth} = require("../middlewares");
 
 const Delivery = require("../models/deliveries");
 
-router.use(groupId)
+router.use(auth)
 
 router.get("/", async (req, res) => {
-    const {groupId} = req
-    const deliveries = await Delivery.find({groupId}).populate({
+    const {group} = req
+    const deliveries = await Delivery.find({group}).populate({
         path: "orders",
         populate: { path: ["products.product", "customer"] },
     });
@@ -43,8 +43,8 @@ router.get("/:id/allProducts", async (req, res) => {
 });
 
 router.get("/actualDelivery", async (req, res) => {
-    const {groupId} = req
-    const deliveries = await Delivery.findOne({groupId, state: "processing" }).populate({
+    const {group} = req
+    const deliveries = await Delivery.findOne({group, state: "processing" }).populate({
         path: "orders",
         populate: { path: ["products.product", "customer"] },
     });
@@ -55,7 +55,7 @@ router.get("/actualDelivery", async (req, res) => {
 });
 
 router.post("/", async (req, res) => {
-    const {groupId} = req
+    const {group} = req
     const { ordersID } = req.body;
 
     if (!checkBody(req.body, ["ordersID"]))
@@ -65,7 +65,7 @@ router.post("/", async (req, res) => {
         orders: ordersID,
         deliveryDate: new Date(),
         state: "pending",
-        groupId,
+        group
     });
 
     const data = await newDelivery.save();

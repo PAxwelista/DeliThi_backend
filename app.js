@@ -12,6 +12,8 @@ var customersRouter = require("./routes/customers");
 var deliveriesRouter = require("./routes/deliveries");
 var usersRouter = require("./routes/users");
 var directionRouter = require("./routes/direction");
+var groupRouter = require("./routes/groups");
+
 
 var app = express();
 
@@ -30,5 +32,6 @@ app.use("/customers", customersRouter);
 app.use("/deliveries", deliveriesRouter);
 app.use("/users", usersRouter);
 app.use("/direction", directionRouter);
+app.use("/groups", groupRouter);
 
 module.exports = app;

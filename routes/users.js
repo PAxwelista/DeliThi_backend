@@ -1,23 +1,24 @@
 var express = require("express");
 var router = express.Router();
-const { checkBody } = require("../modules/checkBody");
+const { checkBody, generateToken } = require("../modules");
 const bcrypt = require("bcrypt");
-const uid2 = require('uid2');
-
+const jwt = require("jsonwebtoken");
+const JWT_SECRET = process.env.JWT_SECRET;
 
 const User = require("../models/users");
+const Group = require("../models/groups");
 
 router.post("/signIn", async (req, res) => {
     const { username, password } = req.body;
     if (!checkBody(req.body, ["username", "password"]))
         return res.status(400).json({ result: false, error: "Missing or empty fields" });
 
-    const data = await User.findOne({ username: { $regex: `^${username}$`, $options: "i" } });
+    const user = await User.findOne({ username: { $regex: `^${username}$`, $options: "i" } });
 
-    if (data && bcrypt.compareSync(password, data.password)) {
+    if (user && bcrypt.compareSync(password, user.password)) {
         res.status(200).json({
             result: true,
-            login: { username: data.username, groupId: data.groupId, role: data.role },
+            login: { username: user.username, token: generateToken(user), role: user.role },
         });
     } else {
         res.status(400).json({ result: false, error: "Password wrong or username doesn't exist" });
@@ -25,21 +26,37 @@ router.post("/signIn", async (req, res) => {
 });
 
 router.post("/signUp", async (req, res) => {
-    const { username, password, groupId, newGroup } = req.body;
-    if (!checkBody(req.body, ["username", "password", "groupId", "newGroup"]))
+    const { username, password, token } = req.body;
+    const isNewGroup = token === "";
+    if (!checkBody(req.body, ["username", "password"]))
         return res.status(400).json({ result: false, error: "Missing or empty fields" });
 
     const UserData = await User.findOne({ username });
 
     if (UserData) return res.status(409).json({ result: false, error: "Username already used" });
 
-    groupId = newGroup ? uid2(32)  : groupId
+    let group;
+
+    if (isNewGroup) {
+        const newGroup = Group({});
+
+        const groupData = await newGroup.save();
+
+        group = groupData._id;
+    } else {
+        try {
+            const decoded = jwt.verify(token, JWT_SECRET);
+            group = decoded.groupId;
+        } catch (err) {
+            return res.status(403).json({result : false ,  error: "Token invalide" });
+        }
+    }
 
     const newUser = User({
         username,
         password: bcrypt.hashSync(password, 10),
-        groupId,
-        role : newGroup ? "admin" : "user"
+        group,
+        role: isNewGroup ? "admin" : "user",
     });
 
     const data = await newUser.save();
@@ -47,7 +64,7 @@ router.post("/signUp", async (req, res) => {
     res.status(201).json({
         result: true,
         data,
-        login: { username: data.username, groupId: data.groupId, role: data.role },
+        login: { username: data.username, token: generateToken(newUser), role: data.role },
     });
 });
 

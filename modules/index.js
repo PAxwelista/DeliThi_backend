@@ -1,3 +1,5 @@
 const { getShorterOrder } = require("./getShorterOrder");
 const { checkBody } = require("./checkBody");
-module.exports = { getShorterOrder, checkBody };
+const { generateToken } = require("./generateToken");
+const { jsonResponse } = require("./jsonResponse");
+module.exports = { getShorterOrder, checkBody, generateToken, jsonResponse };

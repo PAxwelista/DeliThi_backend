@@ -1,4 +1,4 @@
-function groupId(req, res, next) {
+function groupId(req, res, next) { // replace by auth.js
     const groupId = req.headers["group-id"];
 
     if (!groupId) {
@@ -6,7 +6,6 @@ function groupId(req, res, next) {
     }
 
     req.groupId = groupId;
-
     next();
 }
 

@@ -1,17 +1,17 @@
 var express = require("express");
 var router = express.Router();
 const { checkBody } = require("../modules/checkBody");
-const { groupId } = require("../middleware");
+const { auth } = require("../middlewares");
 
 const Order = require("../models/orders");
 
-router.use(groupId);
+router.use(auth);
 
 router.get("/", async (req, res) => {
-    const { groupId } = req;
+    const { group } = req;
     const { area, state } = req.query;
 
-    const data = await Order.find(state ? { state, groupId } : { groupId })
+    const data = await Order.find(state ? { state, group } : { group })
         .populate("customer")
         .populate({ path: "products.product" });
 
@@ -21,15 +21,15 @@ router.get("/", async (req, res) => {
 });
 
 router.get("/allAreas", async (req, res) => {
-    const { groupId } = req;
-    const data = await Order.find({ groupId });
+    const { group } = req;
+    const data = await Order.find({ group });
     const areas = data.map(v => v.area);
 
     res.status(200).json({ areas: [...new Set(areas)] }); // supprimer les doublons
 });
 
 router.post("/", async (req, res) => {
-    const { groupId } = req;
+    const { group} = req;
 
     const { products, orderer, customerId, area } = req.body;
 
@@ -44,7 +44,7 @@ router.post("/", async (req, res) => {
         state: "pending",
         customer: customerId,
         area,
-        groupId,
+        group ,
     });
 
     const data = await newOrder.save();

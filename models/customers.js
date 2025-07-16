@@ -12,7 +12,7 @@ const customerSchema = mongoose.Schema({
     location: locationSchema,
     phoneNumber: String,
     email: String,
-    groupId: String,
+    group: { type: mongoose.Schema.Types.ObjectId, ref: "group" },
 });
 
 const Customer = mongoose.model("customers", customerSchema);
