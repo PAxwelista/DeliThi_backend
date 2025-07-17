@@ -1,7 +1,7 @@
 var express = require("express");
 var router = express.Router();
 var polyline = require("@mapbox/polyline");
-const { checkBody, getShorterOrder } = require("../modules");
+const { checkBody, getShorterOrder, matrixFromCoords } = require("../modules");
 
 const OPENROUTESERVERVICE_APIKEY = process.env.OPENROUTESERVERVICE_APIKEY;
 
@@ -10,26 +10,32 @@ router.post("/order", async (req, res) => {
         return res.status(400).json({ result: false, error: "Missing or empty fields" });
 
     const { waypointsCoords } = req.body;
-
     const coordsWaypoints = waypointsCoords.map(v => [v.longitude, v.latitude]);
+    let order;
 
-    const dataMatrix = await fetch(`https://api.openrouteservice.org/v2/matrix/driving-car`, {
-        method: "POST",
-        body: JSON.stringify({
-            locations: coordsWaypoints,
-        }),
-        headers: {
-            Authorization: `Bearer ${OPENROUTESERVERVICE_APIKEY}`,
-            "Content-Type": "application/json",
-        },
-    });
+    if (coordsWaypoints.length > 50) {
+        // openRouteApi is not able to handle when there is more than 50 locations
 
-    const jsonMatrix = await dataMatrix.json();
+        order = getShorterOrder(matrixFromCoords(coordsWaypoints));
+    } else {
+        const dataMatrix = await fetch(`https://api.openrouteservice.org/v2/matrix/driving-car`, {
+            method: "POST",
+            body: JSON.stringify({
+                locations: coordsWaypoints,
+            }),
+            headers: {
+                Authorization: `Bearer ${OPENROUTESERVERVICE_APIKEY}`,
+                "Content-Type": "application/json",
+            },
+        });
 
-    if (jsonMatrix.status === "NOT_FOUND") return res.status(404).json({ result: false, error: "Direction not found" });
-    if (jsonMatrix.status === "ZERO_RESULTS") return res.status(404).json({ result: false, error: "Zero result" });
+        let jsonMatrix = await dataMatrix.json();
 
-    const order = getShorterOrder(jsonMatrix.durations);
+        if (jsonMatrix.error)
+            return res.status(404).json({ result: false, error: jsonMatrix.error || jsonMatrix.message });
+
+        order = getShorterOrder(jsonMatrix.durations);
+    }
 
     res.status(200).json({
         result: true,
@@ -37,7 +43,7 @@ router.post("/order", async (req, res) => {
             latitude: coordsWaypoints[order[i]][1],
             longitude: coordsWaypoints[order[i]][0],
         })),
-        order : order
+        order: order,
     });
 });
 
@@ -46,13 +52,13 @@ router.post("/", async (req, res) => {
         return res.status(400).json({ result: false, error: "Missing or empty fields" });
 
     const { waypointsCoords } = req.body;
-
-    const coordsWaypoints = waypointsCoords.map(v => [v.longitude, v.latitude]);
+    const coordsWaypoints = waypointsCoords.map(v => [v.longitude, v.latitude]).filter((_,i)=>i<70); // openApi let just have max 70 routes
 
     const dataDirection = await fetch(`https://api.openrouteservice.org/v2/directions/driving-car`, {
         method: "POST",
         body: JSON.stringify({
             coordinates: coordsWaypoints,
+            radiuses: [1000],
         }),
         headers: {
             Authorization: `Bearer ${OPENROUTESERVERVICE_APIKEY}`,

@@ -1,0 +1,2252 @@
+[
+  {
+    "_id": {
+      "$oid": "167Ffd23b6aDcfAaBdA082BA"
+    },
+    "customer": {
+      "$oid": {
+        "$oid": "E3eEfdF4fCD6aAc73629Ec9f"
+      }
+    },
+    "state": "pending",
+    "creationDate": "2025-08-16T05:15:55.387Z",
+    "deliveryDate": "",
+    "orderer": "Axou",
+    "area": "Here",
+    "amountPaid": 0,
+    "products": [
+      {
+        "_id": {
+          "$oid": "D0ce6Ba6d1Ea9Db4e4c865F7"
+        },
+        "product": {
+          "$oid": "6877c62aaed17235608b5510"
+        },
+        "quantity": 2
+      }
+    ],
+    "group": {
+      "$oid": "6877c21e2849078caf344b43"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "c4DB2900EFbCdDeB61ecdfFb"
+    },
+    "customer": {
+      "$oid": {
+        "$oid": "b29cCD22CbA5e1374C7e8FDf"
+      }
+    },
+    "state": "pending",
+    "creationDate": "2025-10-06T17:36:04.726Z",
+    "deliveryDate": "",
+    "orderer": "Axou",
+    "area": "Here",
+    "amountPaid": 0,
+    "products": [
+      {
+        "_id": {
+          "$oid": "4ea1dbAa91B2d5baC25F17f4"
+        },
+        "product": {
+          "$oid": "6877c62aaed17235608b5510"
+        },
+        "quantity": 2
+      }
+    ],
+    "group": {
+      "$oid": "6877c21e2849078caf344b43"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "045eFb5A8751A0f60ac4DA9e"
+    },
+    "customer": {
+      "$oid": {
+        "$oid": "E7dDcD9bB542EBcBc49D2B0f"
+      }
+    },
+    "state": "pending",
+    "creationDate": "2025-01-25T04:56:54.466Z",
+    "deliveryDate": "",
+    "orderer": "Axou",
+    "area": "Here",
+    "amountPaid": 0,
+    "products": [
+      {
+        "_id": {
+          "$oid": "9490EaD860c5f9bc18DD1606"
+        },
+        "product": {
+          "$oid": "6877c62aaed17235608b5510"
+        },
+        "quantity": 2
+      }
+    ],
+    "group": {
+      "$oid": "6877c21e2849078caf344b43"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "63f4F802c9dF8D23e68a621D"
+    },
+    "customer": {
+      "$oid": {
+        "$oid": "2f4DbA94aCA6a5FC54C63dE9"
+      }
+    },
+    "state": "pending",
+    "creationDate": "2026-02-04T04:45:12.862Z",
+    "deliveryDate": "",
+    "orderer": "Axou",
+    "area": "Here",
+    "amountPaid": 0,
+    "products": [
+      {
+        "_id": {
+          "$oid": "CE1072087E7bc31AB830b08D"
+        },
+        "product": {
+          "$oid": "6877c62aaed17235608b5510"
+        },
+        "quantity": 2
+      }
+    ],
+    "group": {
+      "$oid": "6877c21e2849078caf344b43"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "Ba2dDac59FAed4fA3dcE0DAF"
+    },
+    "customer": {
+      "$oid": {
+        "$oid": "7A5ae31fA10B1b481Bb5dCAd"
+      }
+    },
+    "state": "pending",
+    "creationDate": "2024-08-22T06:46:48.977Z",
+    "deliveryDate": "",
+    "orderer": "Axou",
+    "area": "Here",
+    "amountPaid": 0,
+    "products": [
+      {
+        "_id": {
+          "$oid": "F3EafBf8EFfefdA2D3D3944d"
+        },
+        "product": {
+          "$oid": "6877c62aaed17235608b5510"
+        },
+        "quantity": 2
+      }
+    ],
+    "group": {
+      "$oid": "6877c21e2849078caf344b43"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "61BceDBEb9eA5D7Dc2A7f9df"
+    },
+    "customer": {
+      "$oid": {
+        "$oid": "a6130eD341678Eaf8028e9aa"
+      }
+    },
+    "state": "pending",
+    "creationDate": "2025-10-01T13:10:24.710Z",
+    "deliveryDate": "",
+    "orderer": "Axou",
+    "area": "Here",
+    "amountPaid": 0,
+    "products": [
+      {
+        "_id": {
+          "$oid": "17F9095b091a0B960163a5EA"
+        },
+        "product": {
+          "$oid": "6877c62aaed17235608b5510"
+        },
+        "quantity": 2
+      }
+    ],
+    "group": {
+      "$oid": "6877c21e2849078caf344b43"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "A8Ba2d3bfaAF6be2f9EF0E0f"
+    },
+    "customer": {
+      "$oid": {
+        "$oid": "e8BcEDaaEC751Fa44d5e6ade"
+      }
+    },
+    "state": "pending",
+    "creationDate": "2025-07-06T03:08:59.324Z",
+    "deliveryDate": "",
+    "orderer": "Axou",
+    "area": "Here",
+    "amountPaid": 0,
+    "products": [
+      {
+        "_id": {
+          "$oid": "Dd9bBdE2E83B16dF4bB029E6"
+        },
+        "product": {
+          "$oid": "6877c62aaed17235608b5510"
+        },
+        "quantity": 2
+      }
+    ],
+    "group": {
+      "$oid": "6877c21e2849078caf344b43"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "F72BDc442EECa47E05d347D1"
+    },
+    "customer": {
+      "$oid": {
+        "$oid": "Db203D7EbCC26AF77F4CdDBa"
+      }
+    },
+    "state": "pending",
+    "creationDate": "2024-09-24T21:06:19.264Z",
+    "deliveryDate": "",
+    "orderer": "Axou",
+    "area": "Here",
+    "amountPaid": 0,
+    "products": [
+      {
+        "_id": {
+          "$oid": "bFFB844c2122EEFF1CF985eF"
+        },
+        "product": {
+          "$oid": "6877c62aaed17235608b5510"
+        },
+        "quantity": 2
+      }
+    ],
+    "group": {
+      "$oid": "6877c21e2849078caf344b43"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "2Fe02EFDF2cc1CcB283f6863"
+    },
+    "customer": {
+      "$oid": {
+        "$oid": "8cEfFB87543fC938a55AdCe7"
+      }
+    },
+    "state": "pending",
+    "creationDate": "2026-07-15T21:32:53.367Z",
+    "deliveryDate": "",
+    "orderer": "Axou",
+    "area": "Here",
+    "amountPaid": 0,
+    "products": [
+      {
+        "_id": {
+          "$oid": "607a2670FA27D305096831f0"
+        },
+        "product": {
+          "$oid": "6877c62aaed17235608b5510"
+        },
+        "quantity": 2
+      }
+    ],
+    "group": {
+      "$oid": "6877c21e2849078caf344b43"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "2fE66beEbF135f45E5e2D5e3"
+    },
+    "customer": {
+      "$oid": {
+        "$oid": "268e95744BAD7A5EFb7cedAA"
+      }
+    },
+    "state": "pending",
+    "creationDate": "2025-11-20T13:09:51.652Z",
+    "deliveryDate": "",
+    "orderer": "Axou",
+    "area": "Here",
+    "amountPaid": 0,
+    "products": [
+      {
+        "_id": {
+          "$oid": "9C6D7E9FE2aebA6da1eF7FF2"
+        },
+        "product": {
+          "$oid": "6877c62aaed17235608b5510"
+        },
+        "quantity": 2
+      }
+    ],
+    "group": {
+      "$oid": "6877c21e2849078caf344b43"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "Acd7C109EbC7cFEACabcCa4B"
+    },
+    "customer": {
+      "$oid": {
+        "$oid": "E6c19147aaEaebEC6fEacd5e"
+      }
+    },
+    "state": "pending",
+    "creationDate": "2024-12-08T23:14:08.806Z",
+    "deliveryDate": "",
+    "orderer": "Axou",
+    "area": "Here",
+    "amountPaid": 0,
+    "products": [
+      {
+        "_id": {
+          "$oid": "61C085d13c0EBCFA6E8DB97A"
+        },
+        "product": {
+          "$oid": "6877c62aaed17235608b5510"
+        },
+        "quantity": 2
+      }
+    ],
+    "group": {
+      "$oid": "6877c21e2849078caf344b43"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "fa7E5b06fec11E8fBEabA7FD"
+    },
+    "customer": {
+      "$oid": {
+        "$oid": "a614fd34FEeA1Ef1c5EAbEdE"
+      }
+    },
+    "state": "pending",
+    "creationDate": "2025-07-07T21:11:19.461Z",
+    "deliveryDate": "",
+    "orderer": "Axou",
+    "area": "Here",
+    "amountPaid": 0,
+    "products": [
+      {
+        "_id": {
+          "$oid": "e9CFc16dd0d3bDDD40E78eA5"
+        },
+        "product": {
+          "$oid": "6877c62aaed17235608b5510"
+        },
+        "quantity": 2
+      }
+    ],
+    "group": {
+      "$oid": "6877c21e2849078caf344b43"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "7445e59D45cFd7dEcbfA96E8"
+    },
+    "customer": {
+      "$oid": {
+        "$oid": "29fE55232aABBe072d49bd9a"
+      }
+    },
+    "state": "pending",
+    "creationDate": "2024-08-08T09:54:46.509Z",
+    "deliveryDate": "",
+    "orderer": "Axou",
+    "area": "Here",
+    "amountPaid": 0,
+    "products": [
+      {
+        "_id": {
+          "$oid": "adE55210F7FD5ADDF2edEcB5"
+        },
+        "product": {
+          "$oid": "6877c62aaed17235608b5510"
+        },
+        "quantity": 2
+      }
+    ],
+    "group": {
+      "$oid": "6877c21e2849078caf344b43"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "aCeDC92F65Bf98d408Cdef51"
+    },
+    "customer": {
+      "$oid": {
+        "$oid": "F11E7591E4dE6EaEbD915a20"
+      }
+    },
+    "state": "pending",
+    "creationDate": "2024-09-23T21:44:34.585Z",
+    "deliveryDate": "",
+    "orderer": "Axou",
+    "area": "Here",
+    "amountPaid": 0,
+    "products": [
+      {
+        "_id": {
+          "$oid": "6bdEDE0fAd5f0Eed0f2F62eC"
+        },
+        "product": {
+          "$oid": "6877c62aaed17235608b5510"
+        },
+        "quantity": 2
+      }
+    ],
+    "group": {
+      "$oid": "6877c21e2849078caf344b43"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "8C8C20dA7A15FA8B944b86e6"
+    },
+    "customer": {
+      "$oid": {
+        "$oid": "C662d91fF9baFf93768db6bD"
+      }
+    },
+    "state": "pending",
+    "creationDate": "2026-05-01T15:57:26.868Z",
+    "deliveryDate": "",
+    "orderer": "Axou",
+    "area": "Here",
+    "amountPaid": 0,
+    "products": [
+      {
+        "_id": {
+          "$oid": "F8aCd277Aab4FAdadDab4575"
+        },
+        "product": {
+          "$oid": "6877c62aaed17235608b5510"
+        },
+        "quantity": 2
+      }
+    ],
+    "group": {
+      "$oid": "6877c21e2849078caf344b43"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "FBa4097Fda85cd6de1BE4092"
+    },
+    "customer": {
+      "$oid": {
+        "$oid": "e5D3fac05BE7D60a3b034b02"
+      }
+    },
+    "state": "pending",
+    "creationDate": "2025-05-20T09:10:00.577Z",
+    "deliveryDate": "",
+    "orderer": "Axou",
+    "area": "Here",
+    "amountPaid": 0,
+    "products": [
+      {
+        "_id": {
+          "$oid": "F2dF04D2BDDa90Efac05fD9F"
+        },
+        "product": {
+          "$oid": "6877c62aaed17235608b5510"
+        },
+        "quantity": 2
+      }
+    ],
+    "group": {
+      "$oid": "6877c21e2849078caf344b43"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "730873ad5C0F7a29D0FDe22C"
+    },
+    "customer": {
+      "$oid": {
+        "$oid": "e8cBB23AFed0685E5934dDEc"
+      }
+    },
+    "state": "pending",
+    "creationDate": "2024-10-25T03:28:31.712Z",
+    "deliveryDate": "",
+    "orderer": "Axou",
+    "area": "Here",
+    "amountPaid": 0,
+    "products": [
+      {
+        "_id": {
+          "$oid": "75FA903cFd4DFdEeDddb5beC"
+        },
+        "product": {
+          "$oid": "6877c62aaed17235608b5510"
+        },
+        "quantity": 2
+      }
+    ],
+    "group": {
+      "$oid": "6877c21e2849078caf344b43"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "460993c63E63Eee4AfEA5Fb1"
+    },
+    "customer": {
+      "$oid": {
+        "$oid": "746226678be38bE5ec8E6Ef8"
+      }
+    },
+    "state": "pending",
+    "creationDate": "2025-06-05T12:50:13.001Z",
+    "deliveryDate": "",
+    "orderer": "Axou",
+    "area": "Here",
+    "amountPaid": 0,
+    "products": [
+      {
+        "_id": {
+          "$oid": "F4A5aAe7CBf2CeC6cDC2149d"
+        },
+        "product": {
+          "$oid": "6877c62aaed17235608b5510"
+        },
+        "quantity": 2
+      }
+    ],
+    "group": {
+      "$oid": "6877c21e2849078caf344b43"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "bBFDcaF018cb43aCAf921dC0"
+    },
+    "customer": {
+      "$oid": {
+        "$oid": "AdA44ec9a63d13dD6785B61E"
+      }
+    },
+    "state": "pending",
+    "creationDate": "2024-11-12T23:02:24.283Z",
+    "deliveryDate": "",
+    "orderer": "Axou",
+    "area": "Here",
+    "amountPaid": 0,
+    "products": [
+      {
+        "_id": {
+          "$oid": "Fd7107aABF0CD4Cc50796BBe"
+        },
+        "product": {
+          "$oid": "6877c62aaed17235608b5510"
+        },
+        "quantity": 2
+      }
+    ],
+    "group": {
+      "$oid": "6877c21e2849078caf344b43"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "Be68BaEBF500E93fceeBF229"
+    },
+    "customer": {
+      "$oid": {
+        "$oid": "5B72830C46Dd9a6eb8edE9A1"
+      }
+    },
+    "state": "pending",
+    "creationDate": "2025-02-22T21:27:00.142Z",
+    "deliveryDate": "",
+    "orderer": "Axou",
+    "area": "Here",
+    "amountPaid": 0,
+    "products": [
+      {
+        "_id": {
+          "$oid": "75567f07Ca20Cbeb3DE51fb2"
+        },
+        "product": {
+          "$oid": "6877c62aaed17235608b5510"
+        },
+        "quantity": 2
+      }
+    ],
+    "group": {
+      "$oid": "6877c21e2849078caf344b43"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "dfeBCB0DceF3fdeC8c38fC0f"
+    },
+    "customer": {
+      "$oid": {
+        "$oid": "9233b0096A285ECBCC0E2874"
+      }
+    },
+    "state": "pending",
+    "creationDate": "2025-09-18T06:31:43.871Z",
+    "deliveryDate": "",
+    "orderer": "Axou",
+    "area": "Here",
+    "amountPaid": 0,
+    "products": [
+      {
+        "_id": {
+          "$oid": "853dFB7b03E10Ec5A6dAA21a"
+        },
+        "product": {
+          "$oid": "6877c62aaed17235608b5510"
+        },
+        "quantity": 2
+      }
+    ],
+    "group": {
+      "$oid": "6877c21e2849078caf344b43"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "3C4ac20C373Ccd0b94a0fcAF"
+    },
+    "customer": {
+      "$oid": {
+        "$oid": "3fbcbf00E2F25fA60D07DDb7"
+      }
+    },
+    "state": "pending",
+    "creationDate": "2025-07-13T08:09:18.376Z",
+    "deliveryDate": "",
+    "orderer": "Axou",
+    "area": "Here",
+    "amountPaid": 0,
+    "products": [
+      {
+        "_id": {
+          "$oid": "1cdaeACdC24BF4AAA5D1e1CA"
+        },
+        "product": {
+          "$oid": "6877c62aaed17235608b5510"
+        },
+        "quantity": 2
+      }
+    ],
+    "group": {
+      "$oid": "6877c21e2849078caf344b43"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "B06cfc0dAAa746BB3E2068D7"
+    },
+    "customer": {
+      "$oid": {
+        "$oid": "a6890E018cb7A3bc74eb0d12"
+      }
+    },
+    "state": "pending",
+    "creationDate": "2024-08-06T23:32:05.547Z",
+    "deliveryDate": "",
+    "orderer": "Axou",
+    "area": "Here",
+    "amountPaid": 0,
+    "products": [
+      {
+        "_id": {
+          "$oid": "fdA21CAa644AC0f9ba4816CB"
+        },
+        "product": {
+          "$oid": "6877c62aaed17235608b5510"
+        },
+        "quantity": 2
+      }
+    ],
+    "group": {
+      "$oid": "6877c21e2849078caf344b43"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "FbC5e0aAeeE6e72e9fB7Bf7E"
+    },
+    "customer": {
+      "$oid": {
+        "$oid": "Bc6e4Df3712D10AA00bda13b"
+      }
+    },
+    "state": "pending",
+    "creationDate": "2024-11-10T06:11:52.801Z",
+    "deliveryDate": "",
+    "orderer": "Axou",
+    "area": "Here",
+    "amountPaid": 0,
+    "products": [
+      {
+        "_id": {
+          "$oid": "bf7fBEFAeC8a129CF176c432"
+        },
+        "product": {
+          "$oid": "6877c62aaed17235608b5510"
+        },
+        "quantity": 2
+      }
+    ],
+    "group": {
+      "$oid": "6877c21e2849078caf344b43"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "BA4ab2AFbaeE13a20e4BEe06"
+    },
+    "customer": {
+      "$oid": {
+        "$oid": "6A6416a6b51BbE69DAD6A2c7"
+      }
+    },
+    "state": "pending",
+    "creationDate": "2024-08-24T11:36:03.871Z",
+    "deliveryDate": "",
+    "orderer": "Axou",
+    "area": "Here",
+    "amountPaid": 0,
+    "products": [
+      {
+        "_id": {
+          "$oid": "DfeDDa1e0edb31Ae7d1A7CbC"
+        },
+        "product": {
+          "$oid": "6877c62aaed17235608b5510"
+        },
+        "quantity": 2
+      }
+    ],
+    "group": {
+      "$oid": "6877c21e2849078caf344b43"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "b47F3d07C9ab4DAfeeDd8Fb4"
+    },
+    "customer": {
+      "$oid": {
+        "$oid": "3caEabde88ECAeAbCF3F67BC"
+      }
+    },
+    "state": "pending",
+    "creationDate": "2026-03-14T15:08:41.978Z",
+    "deliveryDate": "",
+    "orderer": "Axou",
+    "area": "Here",
+    "amountPaid": 0,
+    "products": [
+      {
+        "_id": {
+          "$oid": "2B7CEf5Fa8E9156aF9B0E6B5"
+        },
+        "product": {
+          "$oid": "6877c62aaed17235608b5510"
+        },
+        "quantity": 2
+      }
+    ],
+    "group": {
+      "$oid": "6877c21e2849078caf344b43"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "7537f33dA51b42A215c5eCcF"
+    },
+    "customer": {
+      "$oid": {
+        "$oid": "2e5CE53b3AeDF10fF1656A5D"
+      }
+    },
+    "state": "pending",
+    "creationDate": "2025-12-31T07:49:52.987Z",
+    "deliveryDate": "",
+    "orderer": "Axou",
+    "area": "Here",
+    "amountPaid": 0,
+    "products": [
+      {
+        "_id": {
+          "$oid": "eD754F10ea0b40678586919b"
+        },
+        "product": {
+          "$oid": "6877c62aaed17235608b5510"
+        },
+        "quantity": 2
+      }
+    ],
+    "group": {
+      "$oid": "6877c21e2849078caf344b43"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "D63BD8ab1A98deFf9cd329BB"
+    },
+    "customer": {
+      "$oid": {
+        "$oid": "aFa5086eD1dd6dCB9a03de36"
+      }
+    },
+    "state": "pending",
+    "creationDate": "2026-02-28T04:25:45.393Z",
+    "deliveryDate": "",
+    "orderer": "Axou",
+    "area": "Here",
+    "amountPaid": 0,
+    "products": [
+      {
+        "_id": {
+          "$oid": "B7941fAf331DBF452D8f80c0"
+        },
+        "product": {
+          "$oid": "6877c62aaed17235608b5510"
+        },
+        "quantity": 2
+      }
+    ],
+    "group": {
+      "$oid": "6877c21e2849078caf344b43"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "09735D8AE7866ebdcaC441E3"
+    },
+    "customer": {
+      "$oid": {
+        "$oid": "E906Ff3fEc0F0E2C9D1Efed8"
+      }
+    },
+    "state": "pending",
+    "creationDate": "2025-08-28T02:26:07.899Z",
+    "deliveryDate": "",
+    "orderer": "Axou",
+    "area": "Here",
+    "amountPaid": 0,
+    "products": [
+      {
+        "_id": {
+          "$oid": "cFEc1e53c9891c79Ac4FB7D7"
+        },
+        "product": {
+          "$oid": "6877c62aaed17235608b5510"
+        },
+        "quantity": 2
+      }
+    ],
+    "group": {
+      "$oid": "6877c21e2849078caf344b43"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "e0ccF71a5CA1CC8A0f3D25Ec"
+    },
+    "customer": {
+      "$oid": {
+        "$oid": "80B1eaDAcfAa3Fed8fB2aeAd"
+      }
+    },
+    "state": "pending",
+    "creationDate": "2025-06-21T05:44:35.501Z",
+    "deliveryDate": "",
+    "orderer": "Axou",
+    "area": "Here",
+    "amountPaid": 0,
+    "products": [
+      {
+        "_id": {
+          "$oid": "6CA6E35Adb708A2892eAA2D9"
+        },
+        "product": {
+          "$oid": "6877c62aaed17235608b5510"
+        },
+        "quantity": 2
+      }
+    ],
+    "group": {
+      "$oid": "6877c21e2849078caf344b43"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "EBf1ecbfA43c7Af7Ab9E9869"
+    },
+    "customer": {
+      "$oid": {
+        "$oid": "C12aB5b28C8C3bcE3DB76E9f"
+      }
+    },
+    "state": "pending",
+    "creationDate": "2026-01-02T01:26:17.211Z",
+    "deliveryDate": "",
+    "orderer": "Axou",
+    "area": "Here",
+    "amountPaid": 0,
+    "products": [
+      {
+        "_id": {
+          "$oid": "F5B1DDfd66cfcec94a5FBb90"
+        },
+        "product": {
+          "$oid": "6877c62aaed17235608b5510"
+        },
+        "quantity": 2
+      }
+    ],
+    "group": {
+      "$oid": "6877c21e2849078caf344b43"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "44fb5f7bDa1E1c0DbE74EdbB"
+    },
+    "customer": {
+      "$oid": {
+        "$oid": "7AcB9f31F6bDa4e5EeFc08E6"
+      }
+    },
+    "state": "pending",
+    "creationDate": "2025-09-04T18:41:44.175Z",
+    "deliveryDate": "",
+    "orderer": "Axou",
+    "area": "Here",
+    "amountPaid": 0,
+    "products": [
+      {
+        "_id": {
+          "$oid": "BfD7fab069fcE9EccE2fC40e"
+        },
+        "product": {
+          "$oid": "6877c62aaed17235608b5510"
+        },
+        "quantity": 2
+      }
+    ],
+    "group": {
+      "$oid": "6877c21e2849078caf344b43"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "a65E7C57a4d6C2E6Acf22D51"
+    },
+    "customer": {
+      "$oid": {
+        "$oid": "0f9FAfdAfB33BD2d41bCDAf9"
+      }
+    },
+    "state": "pending",
+    "creationDate": "2025-03-21T16:54:11.565Z",
+    "deliveryDate": "",
+    "orderer": "Axou",
+    "area": "Here",
+    "amountPaid": 0,
+    "products": [
+      {
+        "_id": {
+          "$oid": "fc0CD83Fac4f406AF6A23BA3"
+        },
+        "product": {
+          "$oid": "6877c62aaed17235608b5510"
+        },
+        "quantity": 2
+      }
+    ],
+    "group": {
+      "$oid": "6877c21e2849078caf344b43"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "d37F6fcCB1abD1F7ea2cf47F"
+    },
+    "customer": {
+      "$oid": {
+        "$oid": "2e8a36F268452ecBA0239CE0"
+      }
+    },
+    "state": "pending",
+    "creationDate": "2025-03-20T19:12:56.161Z",
+    "deliveryDate": "",
+    "orderer": "Axou",
+    "area": "Here",
+    "amountPaid": 0,
+    "products": [
+      {
+        "_id": {
+          "$oid": "feb531A6eC476cdFbECFC4ff"
+        },
+        "product": {
+          "$oid": "6877c62aaed17235608b5510"
+        },
+        "quantity": 2
+      }
+    ],
+    "group": {
+      "$oid": "6877c21e2849078caf344b43"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "17100c720F33cd49035054D4"
+    },
+    "customer": {
+      "$oid": {
+        "$oid": "DEB20BaD58c3EC08De0AB59b"
+      }
+    },
+    "state": "pending",
+    "creationDate": "2024-12-04T10:21:12.319Z",
+    "deliveryDate": "",
+    "orderer": "Axou",
+    "area": "Here",
+    "amountPaid": 0,
+    "products": [
+      {
+        "_id": {
+          "$oid": "bDBBdCDCb98fca0d0dC7d17F"
+        },
+        "product": {
+          "$oid": "6877c62aaed17235608b5510"
+        },
+        "quantity": 2
+      }
+    ],
+    "group": {
+      "$oid": "6877c21e2849078caf344b43"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "D70Edfc9f072A29Adf6EaB5A"
+    },
+    "customer": {
+      "$oid": {
+        "$oid": "59efBCdbEFB6d1F6a9e035E7"
+      }
+    },
+    "state": "pending",
+    "creationDate": "2024-10-16T11:57:52.168Z",
+    "deliveryDate": "",
+    "orderer": "Axou",
+    "area": "Here",
+    "amountPaid": 0,
+    "products": [
+      {
+        "_id": {
+          "$oid": "aA8FB45421cc8e92fE4aDfb6"
+        },
+        "product": {
+          "$oid": "6877c62aaed17235608b5510"
+        },
+        "quantity": 2
+      }
+    ],
+    "group": {
+      "$oid": "6877c21e2849078caf344b43"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "21A8c03da6D9eD3b477C14Ed"
+    },
+    "customer": {
+      "$oid": {
+        "$oid": "6ABE7EaB7ABc47Bb9E5FcEd7"
+      }
+    },
+    "state": "pending",
+    "creationDate": "2025-04-27T05:59:12.957Z",
+    "deliveryDate": "",
+    "orderer": "Axou",
+    "area": "Here",
+    "amountPaid": 0,
+    "products": [
+      {
+        "_id": {
+          "$oid": "87bd8aeee9cc9faAc7CE5ADd"
+        },
+        "product": {
+          "$oid": "6877c62aaed17235608b5510"
+        },
+        "quantity": 2
+      }
+    ],
+    "group": {
+      "$oid": "6877c21e2849078caf344b43"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "EE51009E70fFec8bF9AAfaFC"
+    },
+    "customer": {
+      "$oid": {
+        "$oid": "5d03CAeA91BBdee2693c7DB8"
+      }
+    },
+    "state": "pending",
+    "creationDate": "2026-06-14T19:02:01.028Z",
+    "deliveryDate": "",
+    "orderer": "Axou",
+    "area": "Here",
+    "amountPaid": 0,
+    "products": [
+      {
+        "_id": {
+          "$oid": "Ca7Cb28Ed71Cc5cb8e5dAcD6"
+        },
+        "product": {
+          "$oid": "6877c62aaed17235608b5510"
+        },
+        "quantity": 2
+      }
+    ],
+    "group": {
+      "$oid": "6877c21e2849078caf344b43"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "1Ff42eCA27effbDdC3A5e541"
+    },
+    "customer": {
+      "$oid": {
+        "$oid": "5CdfeA6Ee63FeE9e0Abc06c1"
+      }
+    },
+    "state": "pending",
+    "creationDate": "2025-05-31T21:55:54.792Z",
+    "deliveryDate": "",
+    "orderer": "Axou",
+    "area": "Here",
+    "amountPaid": 0,
+    "products": [
+      {
+        "_id": {
+          "$oid": "C7A0eDBe14bfb067BD06bc10"
+        },
+        "product": {
+          "$oid": "6877c62aaed17235608b5510"
+        },
+        "quantity": 2
+      }
+    ],
+    "group": {
+      "$oid": "6877c21e2849078caf344b43"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "092b9a6Db5c8acB48BF4F2dD"
+    },
+    "customer": {
+      "$oid": {
+        "$oid": "e60Bf805a24d66dEC836000C"
+      }
+    },
+    "state": "pending",
+    "creationDate": "2025-12-11T20:40:27.208Z",
+    "deliveryDate": "",
+    "orderer": "Axou",
+    "area": "Here",
+    "amountPaid": 0,
+    "products": [
+      {
+        "_id": {
+          "$oid": "16FC1C21BC955Ff73Cd555Fa"
+        },
+        "product": {
+          "$oid": "6877c62aaed17235608b5510"
+        },
+        "quantity": 2
+      }
+    ],
+    "group": {
+      "$oid": "6877c21e2849078caf344b43"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "D09aCeEEb2787E2507ED9A5B"
+    },
+    "customer": {
+      "$oid": {
+        "$oid": "dbE0AAa0C2b672B5Fdbfbcb1"
+      }
+    },
+    "state": "pending",
+    "creationDate": "2025-01-04T03:02:00.279Z",
+    "deliveryDate": "",
+    "orderer": "Axou",
+    "area": "Here",
+    "amountPaid": 0,
+    "products": [
+      {
+        "_id": {
+          "$oid": "Bb5d4a0eEF3e52aDDB94635d"
+        },
+        "product": {
+          "$oid": "6877c62aaed17235608b5510"
+        },
+        "quantity": 2
+      }
+    ],
+    "group": {
+      "$oid": "6877c21e2849078caf344b43"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "3748Cdf9eBBD14c754CdacC8"
+    },
+    "customer": {
+      "$oid": {
+        "$oid": "3c4B24AD0186e94D09ADE3ac"
+      }
+    },
+    "state": "pending",
+    "creationDate": "2025-11-04T00:38:55.071Z",
+    "deliveryDate": "",
+    "orderer": "Axou",
+    "area": "Here",
+    "amountPaid": 0,
+    "products": [
+      {
+        "_id": {
+          "$oid": "f9cAB51c8fcf0E3a81C5f54f"
+        },
+        "product": {
+          "$oid": "6877c62aaed17235608b5510"
+        },
+        "quantity": 2
+      }
+    ],
+    "group": {
+      "$oid": "6877c21e2849078caf344b43"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "f9CEf05E3A3954Baf4DBe24e"
+    },
+    "customer": {
+      "$oid": {
+        "$oid": "ECCe85829338DbD1f44df486"
+      }
+    },
+    "state": "pending",
+    "creationDate": "2025-10-07T19:07:18.644Z",
+    "deliveryDate": "",
+    "orderer": "Axou",
+    "area": "Here",
+    "amountPaid": 0,
+    "products": [
+      {
+        "_id": {
+          "$oid": "EC6dccD9Ffb26b5e0248BcAa"
+        },
+        "product": {
+          "$oid": "6877c62aaed17235608b5510"
+        },
+        "quantity": 2
+      }
+    ],
+    "group": {
+      "$oid": "6877c21e2849078caf344b43"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "EaF0a5dd118717AbE72e43f4"
+    },
+    "customer": {
+      "$oid": {
+        "$oid": "8B5cF735C32354DAaE8fb7a0"
+      }
+    },
+    "state": "pending",
+    "creationDate": "2024-11-16T15:51:40.132Z",
+    "deliveryDate": "",
+    "orderer": "Axou",
+    "area": "Here",
+    "amountPaid": 0,
+    "products": [
+      {
+        "_id": {
+          "$oid": "Ca4d9ACe64893b2AB671Eb65"
+        },
+        "product": {
+          "$oid": "6877c62aaed17235608b5510"
+        },
+        "quantity": 2
+      }
+    ],
+    "group": {
+      "$oid": "6877c21e2849078caf344b43"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "CcfBab1a4569F0ED784F6ebD"
+    },
+    "customer": {
+      "$oid": {
+        "$oid": "D8c48b5EAc42F24cA3181C8b"
+      }
+    },
+    "state": "pending",
+    "creationDate": "2025-01-10T13:12:24.852Z",
+    "deliveryDate": "",
+    "orderer": "Axou",
+    "area": "Here",
+    "amountPaid": 0,
+    "products": [
+      {
+        "_id": {
+          "$oid": "A0bFEaBFc5413DD33420ADdb"
+        },
+        "product": {
+          "$oid": "6877c62aaed17235608b5510"
+        },
+        "quantity": 2
+      }
+    ],
+    "group": {
+      "$oid": "6877c21e2849078caf344b43"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "7b93Bd84b75270aCdce00F48"
+    },
+    "customer": {
+      "$oid": {
+        "$oid": "d102BDf71eB6207Db1E5afde"
+      }
+    },
+    "state": "pending",
+    "creationDate": "2025-03-05T17:19:42.926Z",
+    "deliveryDate": "",
+    "orderer": "Axou",
+    "area": "Here",
+    "amountPaid": 0,
+    "products": [
+      {
+        "_id": {
+          "$oid": "9Afe5481b1B8Cfaa25b662f5"
+        },
+        "product": {
+          "$oid": "6877c62aaed17235608b5510"
+        },
+        "quantity": 2
+      }
+    ],
+    "group": {
+      "$oid": "6877c21e2849078caf344b43"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "0FD8ABD6F3e34BFAcD4c3A1A"
+    },
+    "customer": {
+      "$oid": {
+        "$oid": "91aAc9fb6FcAdbbD2feda7ea"
+      }
+    },
+    "state": "pending",
+    "creationDate": "2024-07-19T02:19:09.705Z",
+    "deliveryDate": "",
+    "orderer": "Axou",
+    "area": "Here",
+    "amountPaid": 0,
+    "products": [
+      {
+        "_id": {
+          "$oid": "F91BfF9a6bDb8CAB722BCC2a"
+        },
+        "product": {
+          "$oid": "6877c62aaed17235608b5510"
+        },
+        "quantity": 2
+      }
+    ],
+    "group": {
+      "$oid": "6877c21e2849078caf344b43"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "Edc9bC3BccfcebB0ecFB5467"
+    },
+    "customer": {
+      "$oid": {
+        "$oid": "FEc2ABB3Eff3cCcc8CEaa35D"
+      }
+    },
+    "state": "pending",
+    "creationDate": "2025-06-21T09:25:46.822Z",
+    "deliveryDate": "",
+    "orderer": "Axou",
+    "area": "Here",
+    "amountPaid": 0,
+    "products": [
+      {
+        "_id": {
+          "$oid": "7ab1bDDa763a4EDb7f8B08f3"
+        },
+        "product": {
+          "$oid": "6877c62aaed17235608b5510"
+        },
+        "quantity": 2
+      }
+    ],
+    "group": {
+      "$oid": "6877c21e2849078caf344b43"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "A3Fde6F5EF1474E34fC225eb"
+    },
+    "customer": {
+      "$oid": {
+        "$oid": "1f57a386022CeeBCBa2e63d3"
+      }
+    },
+    "state": "pending",
+    "creationDate": "2025-10-21T21:08:41.285Z",
+    "deliveryDate": "",
+    "orderer": "Axou",
+    "area": "Here",
+    "amountPaid": 0,
+    "products": [
+      {
+        "_id": {
+          "$oid": "E6ba7cDf0B025C4Ccd7AD1d2"
+        },
+        "product": {
+          "$oid": "6877c62aaed17235608b5510"
+        },
+        "quantity": 2
+      }
+    ],
+    "group": {
+      "$oid": "6877c21e2849078caf344b43"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "3DbE5b082889A2cEe81ad01B"
+    },
+    "customer": {
+      "$oid": {
+        "$oid": "aCfe6c1798dFefb8AbBde15f"
+      }
+    },
+    "state": "pending",
+    "creationDate": "2026-05-31T19:36:14.759Z",
+    "deliveryDate": "",
+    "orderer": "Axou",
+    "area": "Here",
+    "amountPaid": 0,
+    "products": [
+      {
+        "_id": {
+          "$oid": "175Caf0ecb57Da8b2B0364f6"
+        },
+        "product": {
+          "$oid": "6877c62aaed17235608b5510"
+        },
+        "quantity": 2
+      }
+    ],
+    "group": {
+      "$oid": "6877c21e2849078caf344b43"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "3778A091CCFBD2Aff5B3f55e"
+    },
+    "customer": {
+      "$oid": {
+        "$oid": "C621bbEAed57b02B7ec463B4"
+      }
+    },
+    "state": "pending",
+    "creationDate": "2025-04-11T03:26:14.915Z",
+    "deliveryDate": "",
+    "orderer": "Axou",
+    "area": "Here",
+    "amountPaid": 0,
+    "products": [
+      {
+        "_id": {
+          "$oid": "fCeee8f23A2bb97A39d507AC"
+        },
+        "product": {
+          "$oid": "6877c62aaed17235608b5510"
+        },
+        "quantity": 2
+      }
+    ],
+    "group": {
+      "$oid": "6877c21e2849078caf344b43"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "aCD7e5Bd95EA2aE7ACbA3D54"
+    },
+    "customer": {
+      "$oid": {
+        "$oid": "f873eDdAa8c8ab39DDfaC1bF"
+      }
+    },
+    "state": "pending",
+    "creationDate": "2025-07-10T08:47:48.127Z",
+    "deliveryDate": "",
+    "orderer": "Axou",
+    "area": "Here",
+    "amountPaid": 0,
+    "products": [
+      {
+        "_id": {
+          "$oid": "D4a0c6EcFC6Ce0C5E4f4B9Bb"
+        },
+        "product": {
+          "$oid": "6877c62aaed17235608b5510"
+        },
+        "quantity": 2
+      }
+    ],
+    "group": {
+      "$oid": "6877c21e2849078caf344b43"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "B61C6CCCafc6bCA07EA3CE46"
+    },
+    "customer": {
+      "$oid": {
+        "$oid": "EA9CF57Bcf8CaD57aFF7CBbA"
+      }
+    },
+    "state": "pending",
+    "creationDate": "2025-03-26T15:08:00.347Z",
+    "deliveryDate": "",
+    "orderer": "Axou",
+    "area": "Here",
+    "amountPaid": 0,
+    "products": [
+      {
+        "_id": {
+          "$oid": "2aDE650F0ebACBDb1C6665c6"
+        },
+        "product": {
+          "$oid": "6877c62aaed17235608b5510"
+        },
+        "quantity": 2
+      }
+    ],
+    "group": {
+      "$oid": "6877c21e2849078caf344b43"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "0939f4dADbebDe2bEE94e6FA"
+    },
+    "customer": {
+      "$oid": {
+        "$oid": "BA9c38F237f229DAcb31b9CE"
+      }
+    },
+    "state": "pending",
+    "creationDate": "2024-11-13T05:18:52.078Z",
+    "deliveryDate": "",
+    "orderer": "Axou",
+    "area": "Here",
+    "amountPaid": 0,
+    "products": [
+      {
+        "_id": {
+          "$oid": "40bBCcBa6A7ed54a3a42312b"
+        },
+        "product": {
+          "$oid": "6877c62aaed17235608b5510"
+        },
+        "quantity": 2
+      }
+    ],
+    "group": {
+      "$oid": "6877c21e2849078caf344b43"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "d1b1a642D4E1e7e3DBdb5603"
+    },
+    "customer": {
+      "$oid": {
+        "$oid": "dc56FaBDaC8ffE2bbBc93B4E"
+      }
+    },
+    "state": "pending",
+    "creationDate": "2024-11-07T06:50:27.148Z",
+    "deliveryDate": "",
+    "orderer": "Axou",
+    "area": "Here",
+    "amountPaid": 0,
+    "products": [
+      {
+        "_id": {
+          "$oid": "b1B1F39ef93FfFa7DC9fd06D"
+        },
+        "product": {
+          "$oid": "6877c62aaed17235608b5510"
+        },
+        "quantity": 2
+      }
+    ],
+    "group": {
+      "$oid": "6877c21e2849078caf344b43"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "9cce83e71D5Df5f6eb27F90D"
+    },
+    "customer": {
+      "$oid": {
+        "$oid": "2b8f8e38a9D5d91393bc2Faf"
+      }
+    },
+    "state": "pending",
+    "creationDate": "2026-05-11T14:54:39.548Z",
+    "deliveryDate": "",
+    "orderer": "Axou",
+    "area": "Here",
+    "amountPaid": 0,
+    "products": [
+      {
+        "_id": {
+          "$oid": "20fa42ccB7F0Dd9c7F7E606E"
+        },
+        "product": {
+          "$oid": "6877c62aaed17235608b5510"
+        },
+        "quantity": 2
+      }
+    ],
+    "group": {
+      "$oid": "6877c21e2849078caf344b43"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "C67bbDbc9bcdF325fD59e535"
+    },
+    "customer": {
+      "$oid": {
+        "$oid": "63bfAcFACF1aFEa22b3C643F"
+      }
+    },
+    "state": "pending",
+    "creationDate": "2025-10-19T07:58:08.338Z",
+    "deliveryDate": "",
+    "orderer": "Axou",
+    "area": "Here",
+    "amountPaid": 0,
+    "products": [
+      {
+        "_id": {
+          "$oid": "bac3CDCD09fe2afBaF9Ed499"
+        },
+        "product": {
+          "$oid": "6877c62aaed17235608b5510"
+        },
+        "quantity": 2
+      }
+    ],
+    "group": {
+      "$oid": "6877c21e2849078caf344b43"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "DAe40cbdc6220C2BA4c2Cb7b"
+    },
+    "customer": {
+      "$oid": {
+        "$oid": "fb04BFFdB1AFDDAAE6E5eeEf"
+      }
+    },
+    "state": "pending",
+    "creationDate": "2025-03-11T00:33:37.818Z",
+    "deliveryDate": "",
+    "orderer": "Axou",
+    "area": "Here",
+    "amountPaid": 0,
+    "products": [
+      {
+        "_id": {
+          "$oid": "9dc33C275901cAcbD72B92Be"
+        },
+        "product": {
+          "$oid": "6877c62aaed17235608b5510"
+        },
+        "quantity": 2
+      }
+    ],
+    "group": {
+      "$oid": "6877c21e2849078caf344b43"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "673Fd6675dA10CB1f50A2644"
+    },
+    "customer": {
+      "$oid": {
+        "$oid": "46AaF8A77f4bCDd4ff7874b2"
+      }
+    },
+    "state": "pending",
+    "creationDate": "2025-11-05T07:20:58.768Z",
+    "deliveryDate": "",
+    "orderer": "Axou",
+    "area": "Here",
+    "amountPaid": 0,
+    "products": [
+      {
+        "_id": {
+          "$oid": "19ab13DD423aDDaABF5fC8ad"
+        },
+        "product": {
+          "$oid": "6877c62aaed17235608b5510"
+        },
+        "quantity": 2
+      }
+    ],
+    "group": {
+      "$oid": "6877c21e2849078caf344b43"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "ebbC2A4Fbda2895aeF541fD9"
+    },
+    "customer": {
+      "$oid": {
+        "$oid": "077E15a04aac723dA26C6f24"
+      }
+    },
+    "state": "pending",
+    "creationDate": "2025-10-14T01:30:41.605Z",
+    "deliveryDate": "",
+    "orderer": "Axou",
+    "area": "Here",
+    "amountPaid": 0,
+    "products": [
+      {
+        "_id": {
+          "$oid": "c6741C3b8d19bdb4EFf0128D"
+        },
+        "product": {
+          "$oid": "6877c62aaed17235608b5510"
+        },
+        "quantity": 2
+      }
+    ],
+    "group": {
+      "$oid": "6877c21e2849078caf344b43"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "E68fFf87697aaBe0E5dda33e"
+    },
+    "customer": {
+      "$oid": {
+        "$oid": "DeCDcf992CcFCA2B4cCdaC2c"
+      }
+    },
+    "state": "pending",
+    "creationDate": "2025-12-18T19:15:54.925Z",
+    "deliveryDate": "",
+    "orderer": "Axou",
+    "area": "Here",
+    "amountPaid": 0,
+    "products": [
+      {
+        "_id": {
+          "$oid": "9976E8fe7BaB8622fD332AEF"
+        },
+        "product": {
+          "$oid": "6877c62aaed17235608b5510"
+        },
+        "quantity": 2
+      }
+    ],
+    "group": {
+      "$oid": "6877c21e2849078caf344b43"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "13532bcB2dAdf9348Ab16DB7"
+    },
+    "customer": {
+      "$oid": {
+        "$oid": "edb8Da5f0dC4a27bBf1AAFaD"
+      }
+    },
+    "state": "pending",
+    "creationDate": "2025-09-15T21:55:49.931Z",
+    "deliveryDate": "",
+    "orderer": "Axou",
+    "area": "Here",
+    "amountPaid": 0,
+    "products": [
+      {
+        "_id": {
+          "$oid": "8dAbbd7F122dCd2Ee15DCdae"
+        },
+        "product": {
+          "$oid": "6877c62aaed17235608b5510"
+        },
+        "quantity": 2
+      }
+    ],
+    "group": {
+      "$oid": "6877c21e2849078caf344b43"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "78a925e25b1ceA9a14BCB8bc"
+    },
+    "customer": {
+      "$oid": {
+        "$oid": "B5F8759452B8D496D4c0533F"
+      }
+    },
+    "state": "pending",
+    "creationDate": "2024-10-08T07:49:25.734Z",
+    "deliveryDate": "",
+    "orderer": "Axou",
+    "area": "Here",
+    "amountPaid": 0,
+    "products": [
+      {
+        "_id": {
+          "$oid": "b0aBe3c1B8e41E2119bEebB9"
+        },
+        "product": {
+          "$oid": "6877c62aaed17235608b5510"
+        },
+        "quantity": 2
+      }
+    ],
+    "group": {
+      "$oid": "6877c21e2849078caf344b43"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "0FFF909F454Daa18774be6cF"
+    },
+    "customer": {
+      "$oid": {
+        "$oid": "34c1F646778EDCD61Fc4643A"
+      }
+    },
+    "state": "pending",
+    "creationDate": "2025-05-12T05:39:45.194Z",
+    "deliveryDate": "",
+    "orderer": "Axou",
+    "area": "Here",
+    "amountPaid": 0,
+    "products": [
+      {
+        "_id": {
+          "$oid": "Dcd0Ec70F728d4bABA40C1cf"
+        },
+        "product": {
+          "$oid": "6877c62aaed17235608b5510"
+        },
+        "quantity": 2
+      }
+    ],
+    "group": {
+      "$oid": "6877c21e2849078caf344b43"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "cd411fc47bdEAf49f8ecd6cA"
+    },
+    "customer": {
+      "$oid": {
+        "$oid": "aa83cbaD8991a3dB61a5FdCE"
+      }
+    },
+    "state": "pending",
+    "creationDate": "2025-06-09T01:29:19.768Z",
+    "deliveryDate": "",
+    "orderer": "Axou",
+    "area": "Here",
+    "amountPaid": 0,
+    "products": [
+      {
+        "_id": {
+          "$oid": "aeF17dbF72Fb6CDD61CC5503"
+        },
+        "product": {
+          "$oid": "6877c62aaed17235608b5510"
+        },
+        "quantity": 2
+      }
+    ],
+    "group": {
+      "$oid": "6877c21e2849078caf344b43"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "cDccd48657bD4f3e2fDe55d5"
+    },
+    "customer": {
+      "$oid": {
+        "$oid": "FfFa84EEFE24d577C50f9Ae5"
+      }
+    },
+    "state": "pending",
+    "creationDate": "2025-01-23T10:21:45.149Z",
+    "deliveryDate": "",
+    "orderer": "Axou",
+    "area": "Here",
+    "amountPaid": 0,
+    "products": [
+      {
+        "_id": {
+          "$oid": "6407FB0C6BdEf7D97bcEC635"
+        },
+        "product": {
+          "$oid": "6877c62aaed17235608b5510"
+        },
+        "quantity": 2
+      }
+    ],
+    "group": {
+      "$oid": "6877c21e2849078caf344b43"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6deE4e750D8c70AC7d2b8a15"
+    },
+    "customer": {
+      "$oid": {
+        "$oid": "00fe8dAdE4aE31581373e9e1"
+      }
+    },
+    "state": "pending",
+    "creationDate": "2025-09-19T08:30:28.469Z",
+    "deliveryDate": "",
+    "orderer": "Axou",
+    "area": "Here",
+    "amountPaid": 0,
+    "products": [
+      {
+        "_id": {
+          "$oid": "B37BCf4aD6dF8dEfcEd4ba37"
+        },
+        "product": {
+          "$oid": "6877c62aaed17235608b5510"
+        },
+        "quantity": 2
+      }
+    ],
+    "group": {
+      "$oid": "6877c21e2849078caf344b43"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "5cf332DC7Fd77fBfa65d3752"
+    },
+    "customer": {
+      "$oid": {
+        "$oid": "d4E8d96ccaeDCC61fbFfEEBB"
+      }
+    },
+    "state": "pending",
+    "creationDate": "2024-12-27T11:05:38.793Z",
+    "deliveryDate": "",
+    "orderer": "Axou",
+    "area": "Here",
+    "amountPaid": 0,
+    "products": [
+      {
+        "_id": {
+          "$oid": "D0C4Ae8BD57fCEDbC58Ee675"
+        },
+        "product": {
+          "$oid": "6877c62aaed17235608b5510"
+        },
+        "quantity": 2
+      }
+    ],
+    "group": {
+      "$oid": "6877c21e2849078caf344b43"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "E20c3cf4C6D15ABCEFe5eeea"
+    },
+    "customer": {
+      "$oid": {
+        "$oid": "731dd397BDd3E02AA7acac66"
+      }
+    },
+    "state": "pending",
+    "creationDate": "2025-01-10T21:03:43.733Z",
+    "deliveryDate": "",
+    "orderer": "Axou",
+    "area": "Here",
+    "amountPaid": 0,
+    "products": [
+      {
+        "_id": {
+          "$oid": "3e2c9a21ce90a7cb0C598AFE"
+        },
+        "product": {
+          "$oid": "6877c62aaed17235608b5510"
+        },
+        "quantity": 2
+      }
+    ],
+    "group": {
+      "$oid": "6877c21e2849078caf344b43"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6d3cC0fFC9cBf6Ed4D76b6BA"
+    },
+    "customer": {
+      "$oid": {
+        "$oid": "Bf457b6aDD280bEF1d1AffFc"
+      }
+    },
+    "state": "pending",
+    "creationDate": "2026-05-03T05:30:44.879Z",
+    "deliveryDate": "",
+    "orderer": "Axou",
+    "area": "Here",
+    "amountPaid": 0,
+    "products": [
+      {
+        "_id": {
+          "$oid": "F8EbA28a923c329f969E3AeC"
+        },
+        "product": {
+          "$oid": "6877c62aaed17235608b5510"
+        },
+        "quantity": 2
+      }
+    ],
+    "group": {
+      "$oid": "6877c21e2849078caf344b43"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "D3580DDFd5C70d8a3DEBF1e4"
+    },
+    "customer": {
+      "$oid": {
+        "$oid": "8Ad76CF5cB9eaf06AFCFFE1B"
+      }
+    },
+    "state": "pending",
+    "creationDate": "2025-11-30T14:04:41.899Z",
+    "deliveryDate": "",
+    "orderer": "Axou",
+    "area": "Here",
+    "amountPaid": 0,
+    "products": [
+      {
+        "_id": {
+          "$oid": "E82ee0daDF3dab4ECCF77daC"
+        },
+        "product": {
+          "$oid": "6877c62aaed17235608b5510"
+        },
+        "quantity": 2
+      }
+    ],
+    "group": {
+      "$oid": "6877c21e2849078caf344b43"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "DD9C8D7DDFd6A00AacBAC066"
+    },
+    "customer": {
+      "$oid": {
+        "$oid": "D8Dade11900556AD5195A19a"
+      }
+    },
+    "state": "pending",
+    "creationDate": "2026-07-17T04:23:52.818Z",
+    "deliveryDate": "",
+    "orderer": "Axou",
+    "area": "Here",
+    "amountPaid": 0,
+    "products": [
+      {
+        "_id": {
+          "$oid": "877D79adbc4FDa3eE709CCbc"
+        },
+        "product": {
+          "$oid": "6877c62aaed17235608b5510"
+        },
+        "quantity": 2
+      }
+    ],
+    "group": {
+      "$oid": "6877c21e2849078caf344b43"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "E4Ff7eAdb1fc2D39ba695Baa"
+    },
+    "customer": {
+      "$oid": {
+        "$oid": "CbAd0ad035AeC03acCB63Ae3"
+      }
+    },
+    "state": "pending",
+    "creationDate": "2025-10-27T13:31:48.554Z",
+    "deliveryDate": "",
+    "orderer": "Axou",
+    "area": "Here",
+    "amountPaid": 0,
+    "products": [
+      {
+        "_id": {
+          "$oid": "B3CfE037CC8582e63edE0743"
+        },
+        "product": {
+          "$oid": "6877c62aaed17235608b5510"
+        },
+        "quantity": 2
+      }
+    ],
+    "group": {
+      "$oid": "6877c21e2849078caf344b43"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "f0ccB22DDd6DacC8Bf0DC20f"
+    },
+    "customer": {
+      "$oid": {
+        "$oid": "3900B8Ead9B4Db1EcB8C0a01"
+      }
+    },
+    "state": "pending",
+    "creationDate": "2026-07-16T17:19:44.851Z",
+    "deliveryDate": "",
+    "orderer": "Axou",
+    "area": "Here",
+    "amountPaid": 0,
+    "products": [
+      {
+        "_id": {
+          "$oid": "0D03CFDb7bf601F7dC51ae8D"
+        },
+        "product": {
+          "$oid": "6877c62aaed17235608b5510"
+        },
+        "quantity": 2
+      }
+    ],
+    "group": {
+      "$oid": "6877c21e2849078caf344b43"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "2B8AffAFB23aC12df2764455"
+    },
+    "customer": {
+      "$oid": {
+        "$oid": "246fb8eae7aD958BCCd3d7c4"
+      }
+    },
+    "state": "pending",
+    "creationDate": "2026-04-19T00:28:06.730Z",
+    "deliveryDate": "",
+    "orderer": "Axou",
+    "area": "Here",
+    "amountPaid": 0,
+    "products": [
+      {
+        "_id": {
+          "$oid": "ca20ac3be4a0eb7BD9bED92a"
+        },
+        "product": {
+          "$oid": "6877c62aaed17235608b5510"
+        },
+        "quantity": 2
+      }
+    ],
+    "group": {
+      "$oid": "6877c21e2849078caf344b43"
+    }
+  }
+]
