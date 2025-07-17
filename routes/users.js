@@ -37,8 +37,17 @@ router.post("/signUp", async (req, res) => {
 
     let group;
 
+    const newUser = User({
+        username,
+        password: bcrypt.hashSync(password, 10),
+        group,
+        role: isNewGroup ? "admin" : "user",
+    });
+
+    const data = await newUser.save();
+
     if (isNewGroup) {
-        const newGroup = Group({});
+        const newGroup = Group({ adminId: data._id });
 
         const groupData = await newGroup.save();
 
@@ -48,18 +57,9 @@ router.post("/signUp", async (req, res) => {
             const decoded = jwt.verify(token, JWT_SECRET);
             group = decoded.groupId;
         } catch (err) {
-            return res.status(403).json({result : false ,  error: "Token invalide" });
+            return res.status(403).json({ result: false, error: "Token invalide" });
         }
     }
-
-    const newUser = User({
-        username,
-        password: bcrypt.hashSync(password, 10),
-        group,
-        role: isNewGroup ? "admin" : "user",
-    });
-
-    const data = await newUser.save();
 
     res.status(201).json({
         result: true,
