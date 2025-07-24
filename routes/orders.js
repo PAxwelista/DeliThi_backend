@@ -1,6 +1,6 @@
 var express = require("express");
 var router = express.Router();
-const { checkBody } = require("../modules/checkBody");
+const { checkBody, jsonResponse } = require("../modules");
 const { auth } = require("../middlewares");
 
 const Order = require("../models/orders");
@@ -23,13 +23,43 @@ router.get("/", async (req, res) => {
 router.get("/allAreas", async (req, res) => {
     const { group } = req;
     const data = await Order.find({ group });
-    const areas = data.map(v => v.area);
+    const areas = [...new Set(data.map(v => v.area))];
 
-    res.status(200).json({ areas: [...new Set(areas)] }); // supprimer les doublons
+    jsonResponse(res, { data: areas, key: "areas" });
+});
+
+router.get("/filter", async (req, res) => {
+    const { group } = req;
+    const { beginAt, endAt, area, product } = req.query;
+
+    let data = await Order.find({
+        group,
+    })
+        .populate("customer")
+        .populate({ path: "products.product" });
+
+    if (beginAt) {
+        data = data.filter(v => new Date(v.creationDate) >= new Date(beginAt));
+    }
+
+    if (endAt) {
+        data = data.filter(v => new Date(v.creationDate) <= new Date(endAt));
+    }
+
+    if (area) {
+        data = data.filter(v => v.area === area);
+    }
+
+    if (product) {
+        console.log(product);
+        data = data.filter(v => v.products.some(productFilter => productFilter.product.name === product));
+    }
+
+    jsonResponse(res, { data });
 });
 
 router.post("/", async (req, res) => {
-    const { group} = req;
+    const { group } = req;
 
     const { products, orderer, customerId, area } = req.body;
 
@@ -44,7 +74,7 @@ router.post("/", async (req, res) => {
         state: "pending",
         customer: customerId,
         area,
-        group ,
+        group,
     });
 
     const data = await newOrder.save();
