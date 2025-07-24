@@ -13,7 +13,7 @@ var deliveriesRouter = require("./routes/deliveries");
 var usersRouter = require("./routes/users");
 var directionRouter = require("./routes/direction");
 var groupRouter = require("./routes/groups");
-
+var refresTokenRouter= require("./routes/refreshToken");
 
 var app = express();
 
@@ -33,5 +33,6 @@ app.use("/deliveries", deliveriesRouter);
 app.use("/users", usersRouter);
 app.use("/direction", directionRouter);
 app.use("/groups", groupRouter);
+app.use("/refreshToken", refresTokenRouter);
 
 module.exports = app;

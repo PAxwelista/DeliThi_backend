@@ -12,7 +12,7 @@ const auth = (req, res, next) => {
         req.group = decoded.groupId;
         next();
     } catch (err) {
-        res.status(403).json({ message: "Token invalide" });
+        res.status(401).json({ message: "Token invalide" });
     }
 };
 

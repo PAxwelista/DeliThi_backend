@@ -1,6 +1,6 @@
 var express = require("express");
 var router = express.Router();
-const { checkBody, generateToken } = require("../modules");
+const { checkBody, generateUserToken } = require("../modules");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 const JWT_SECRET = process.env.JWT_SECRET;
@@ -18,7 +18,12 @@ router.post("/signIn", async (req, res) => {
     if (user && bcrypt.compareSync(password, user.password)) {
         res.status(200).json({
             result: true,
-            login: { username: user.username, token: generateToken(user), role: user.role },
+            login: {
+                username: user.username,
+                token: generateUserToken(user ,process.env.ACCESS_TOKEN_EXPIRY),
+                refreshToken: generateUserToken(user,process.env.REFRESH_TOKEN_EXPIRY),
+                role: user.role,
+            },
         });
     } else {
         res.status(400).json({ result: false, error: "Password wrong or username doesn't exist" });
@@ -64,7 +69,12 @@ router.post("/signUp", async (req, res) => {
     res.status(201).json({
         result: true,
         data,
-        login: { username: data.username, token: generateToken(newUser), role: data.role },
+        login: {
+            username: data.username,
+            token: generateUserToken(newUser , process.env.ACCESS_TOKEN_EXPIRY),
+            refreshToken: generateUserToken(newUser, process.env.REFRESH_TOKEN_EXPIRY ),
+            role: data.role,
+        },
     });
 });
 

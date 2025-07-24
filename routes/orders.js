@@ -51,7 +51,6 @@ router.get("/filter", async (req, res) => {
     }
 
     if (product) {
-        console.log(product);
         data = data.filter(v => v.products.some(productFilter => productFilter.product.name === product));
     }
 
