@@ -1,6 +1,6 @@
 var express = require("express");
 var router = express.Router();
-const { checkBody, jsonResponse } = require("../modules");
+const { checkBody, jsonResponse, createExactRegexInsensitive } = require("../modules");
 const { auth } = require("../middlewares");
 
 const Customer = require("../models/customers");
@@ -19,7 +19,7 @@ router.get("/", async (req, res) => {
 
 router.get("/:customer", async (req, res) => {
     const { group } = req;
-    data = await Customer.findOne({ group, name: { $regex: `^${req.params.customer}$`, $options: "i" } });
+    data = await Customer.findOne({ group, name: createExactRegexInsensitive(req.params.customer) });
 
     jsonResponse(res, {
         data,
@@ -33,7 +33,7 @@ router.post("/", async (req, res) => {
     if (!checkBody(req.body, ["name", "locationName", "area"]))
         return jsonResponse(res, { result: false, error: "Missing or empty fields", code: 400 });
 
-    if ((test = await Customer.findOne({ name: { $regex: `^${name}$`, $options: "i" } })))
+    if ((test = await Customer.findOne({ name: createExactRegexInsensitive(name) })))
         return jsonResponse(res, { result: false, error: "This customer name already exist", code: 409 });
 
     const locationData = await fetch(`https://api-adresse.data.gouv.fr/search/?q=${locationName}`);

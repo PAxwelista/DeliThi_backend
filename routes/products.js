@@ -1,6 +1,6 @@
 var express = require("express");
 var router = express.Router();
-const { checkBody } = require("../modules/checkBody");
+const { checkBody, createExactRegexInsensitive } = require("../modules");
 const { auth } = require("../middlewares");
 
 const Product = require("../models/products");
@@ -16,7 +16,7 @@ router.get("/", async (req, res) => {
 //not really usefull
 router.get("/:product", async (req, res) => {
     const { group } = req;
-    const data = await Product.findOne({ group, name: { $regex: req.params.product, $option: "i" } });
+    const data = await Product.findOne({ group, name: createExactRegexInsensitive(req.params.product) });
     res.status(200).json({ product: data });
 });
 
@@ -26,8 +26,7 @@ router.post("/", async (req, res) => {
 
     if (!checkBody(req.body, ["name", "price"]))
         return res.status(400).json({ result: false, error: "Missing or empty fields" });
-
-    const data = await Product.findOne({ group, name: { $regex: name, $options: "i" } });
+    const data = await Product.findOne({ group, name });
 
     if (data) return res.status(409).json({ result: false, error: "Product already exist" });
 
