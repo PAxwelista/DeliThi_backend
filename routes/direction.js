@@ -1,9 +1,10 @@
 var express = require("express");
 var router = express.Router();
 var polyline = require("@mapbox/polyline");
-const { checkBody, getShorterOrder, matrixFromCoords } = require("../modules");
+const { checkBody, getShorterOrder, matrixFromCoords, jsonResponse } = require("../modules");
 
 const OPENROUTESERVERVICE_APIKEY = process.env.OPENROUTESERVERVICE_APIKEY;
+const GOOGLE_MAPS_APIKEY = process.env.GOOGLE_MAPS_APIKEY;
 
 router.post("/order", async (req, res) => {
     if (!checkBody(req.body, ["waypointsCoords"]))
@@ -52,29 +53,57 @@ router.post("/", async (req, res) => {
         return res.status(400).json({ result: false, error: "Missing or empty fields" });
 
     const { waypointsCoords } = req.body;
-    const coordsWaypoints = waypointsCoords.map(v => [v.longitude, v.latitude]).filter((_,i)=>i<70); // openApi let just have max 70 routes
 
-    const dataDirection = await fetch(`https://api.openrouteservice.org/v2/directions/driving-car`, {
-        method: "POST",
-        body: JSON.stringify({
-            coordinates: coordsWaypoints,
-            radiuses: [1000],
-        }),
-        headers: {
-            Authorization: `Bearer ${OPENROUTESERVERVICE_APIKEY}`,
-            "Content-Type": "application/json",
-        },
-    });
+    const coordsWaypoints = waypointsCoords.map(v => [v.longitude, v.latitude]).filter((_, i) => i < 70); // openApi let just have max 70 routes
 
-    const jsonDirection = await dataDirection.json();
+    try {
+        const dataDirection = await fetch(
+            `https://maps.googleapis.com/maps/api/directions/json?origin=${originCoords.latitude},${originCoords.longitude}&destination=${originCoords.latitude},${originCoords.longitude}&waypoints=optimize:true${allCoordsText}&language=fr&key=${GOOGLE_MAPS_APIKEY}`,
+            {
+                method: "POST",
+                body: JSON.stringify({
+                    coordinates: coordsWaypoints,
+                    radiuses: [1000],
+                }),
+                headers: {
+                    Authorization: `Bearer ${OPENROUTESERVERVICE_APIKEY}`,
+                    "Content-Type": "application/json",
+                },
+            }
+        );
 
-    if (jsonDirection?.error?.code) return res.status(404).json({ result: false, error: jsonDirection.error.message });
+        const jsonDirection = await dataDirection.json();
+        if (jsonDirection?.error?.code)
+            return res.status(404).json({ result: false, error: jsonDirection.error.message });
 
-    res.json({
-        result: true,
-        globalPolyline: polyline.decode(jsonDirection.routes[0].geometry),
-        directionInfos: jsonDirection.routes[0].segments,
-    });
+        res.json({
+            result: true,
+            globalPolyline: polyline.decode(jsonDirection?.routes[0].geometry),
+            directionInfos: jsonDirection?.routes[0].segments,
+        });
+    } catch (error) {
+        try {
+            const allCoordsText = waypointsCoords
+                .filter((_, i) => i != 0 && i <= 10)
+                .reduce((a, v) => a + "|" + v.latitude + "," + v.longitude, "");
+            const dataGoogleDirection = await fetch(
+                `https://maps.googleapis.com/maps/api/directions/json?origin=${waypointsCoords[0].latitude},${waypointsCoords[0].longitude}&destination=${waypointsCoords[11].latitude},${waypointsCoords[11].longitude}&waypoints=${allCoordsText}&language=fr&key=${GOOGLE_MAPS_APIKEY}`,
+                {}
+            );
+
+            const jsonGoogleDirection = await dataGoogleDirection.json();
+            res.json({
+                result: true,
+                globalPolyline: polyline.decode(jsonGoogleDirection.routes[0].overview_polyline.points),
+                directionInfos: jsonGoogleDirection.routes[0].legs.map(leg => ({
+                    distance: leg.distance.value,
+                    duration: leg.duration.value,
+                })),
+            });
+        } catch (error) {
+            return jsonResponse(res, { status: 500, error: String(error), result: false });
+        }
+    }
 });
 
 module.exports = router;
