@@ -58,7 +58,7 @@ router.post("/", async (req, res) => {
 
     try {
         const dataDirection = await fetch(
-            `https://maps.googleapis.com/maps/api/directions/json?origin=${originCoords.latitude},${originCoords.longitude}&destination=${originCoords.latitude},${originCoords.longitude}&waypoints=optimize:true${allCoordsText}&language=fr&key=${GOOGLE_MAPS_APIKEY}`,
+            `https://api.openrouteservice.org/v2/directions/driving-car`,
             {
                 method: "POST",
                 body: JSON.stringify({
