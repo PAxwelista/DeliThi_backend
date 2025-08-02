@@ -11,6 +11,7 @@ const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 const JWT_SECRET = process.env.JWT_SECRET;
 const sendLoginCode = require("../emails/sendLoginCode");
+const { deleteUser } = require("../services/userService");
 
 const User = require("../models/users");
 const Group = require("../models/groups");
@@ -93,7 +94,7 @@ router.post("/signUp", async (req, res) => {
 
     const updateGroupData = await User.updateOne({ _id: data._id }, { group });
 
-    console.log(updateGroupData)
+    console.log(updateGroupData);
 
     res.status(201).json({
         result: true,
@@ -153,6 +154,18 @@ router.post("/verifyEmail", async (req, res) => {
     } catch (error) {
         return jsonResponse(res, { result: false, code: 500, error });
     }
+});
+
+router.delete("/", async (req, res) => {
+    if (!checkBody(req.body, ["username", "password"]))
+        return jsonResponse(res, { result: false, error: "Missing or empty fields", code: 400 });
+
+    const deleteData = await deleteUser(req.body.username, req.body.password);
+
+    if (deleteData.result) {
+        return jsonResponse(res,{});
+    }
+    return jsonResponse(res, { result: false, error: deleteData.error, code: 403 });
 });
 
 module.exports = router;
