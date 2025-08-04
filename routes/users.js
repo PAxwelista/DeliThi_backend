@@ -6,6 +6,7 @@ const {
     createCodeAndExpireDate,
     buildLoginData,
     createExactRegexInsensitive,
+    isValidEmail,
 } = require("../modules");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
@@ -51,6 +52,8 @@ router.post("/signUp", async (req, res) => {
     const isNewGroup = !token;
     if (!checkBody(req.body, ["username", "password", "email"]))
         return res.status(400).json({ result: false, error: "Missing or empty fields" });
+
+    if (!isValidEmail(email)) return res.status(400).json({ result: false, error: "Email is not valid" }); 
 
     const UserData = await User.findOne({
         $or: [
