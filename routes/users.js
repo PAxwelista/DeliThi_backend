@@ -53,7 +53,7 @@ router.post("/signUp", async (req, res) => {
     if (!checkBody(req.body, ["username", "password", "email"]))
         return res.status(400).json({ result: false, error: "Missing or empty fields" });
 
-    if (!isValidEmail(email)) return res.status(400).json({ result: false, error: "Email is not valid" }); 
+    if (!isValidEmail(email)) return res.status(400).json({ result: false, error: "Email is not valid" });
 
     const UserData = await User.findOne({
         $or: [
@@ -96,8 +96,6 @@ router.post("/signUp", async (req, res) => {
     }
 
     const updateGroupData = await User.updateOne({ _id: data._id }, { group });
-
-    console.log(updateGroupData);
 
     res.status(201).json({
         result: true,
@@ -166,9 +164,31 @@ router.delete("/", async (req, res) => {
     const deleteData = await deleteUser(req.body.username, req.body.password);
 
     if (deleteData.result) {
-        return jsonResponse(res,{});
+        return jsonResponse(res, {});
     }
     return jsonResponse(res, { result: false, error: deleteData.error, code: 403 });
+});
+
+router.patch("/updateEmail", async (req, res) => {
+    if (!checkBody(req.body, ["username", "email"]))
+        return jsonResponse(res, { result: false, error: "Missing or empty fields", code: 400 });
+
+    const { username, email } = req.body;
+
+    if (!isValidEmail(email)) return res.status(400).json({ result: false, error: "Email is not valid" });
+
+    const UserData = await User.findOne({
+        email: createExactRegexInsensitive(email),
+    });
+
+    if (UserData)  return res.status(400).json({ result: false, error: "Email already used" });
+
+    const data = await User.updateOne({ username }, { email, emailVerified: false });
+
+    if (data.matchedCount === 0)
+        return jsonResponse(res, { result: false, error: "Nobody with this username", code: 400 });
+
+    return jsonResponse(res, { data });
 });
 
 module.exports = router;

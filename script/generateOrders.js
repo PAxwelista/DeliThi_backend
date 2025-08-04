@@ -1,7 +1,8 @@
 const { faker } = require("@faker-js/faker");
 const fs = require("fs");
 
-const generateOrders = count => {
+const generateOrders = (count , groupId )=> {
+    
     const customers = Array.from({ length: count }, () => {
         const longitude = faker.location.longitude({ min: 4.082826, max: 5.822442 });
         const area = longitude > 5 ? "Zone 1" : "Zone 2";
@@ -16,7 +17,7 @@ const generateOrders = count => {
                 longitude: longitude,
                 latitude: faker.location.latitude({ min: 48.767084, max: 49.307249 }),
             },
-            group: { $oid: "6877c21e2849078caf344b43" },
+            group: { $oid: groupId },
         };
     });
 
@@ -36,13 +37,13 @@ const generateOrders = count => {
                 quantity: 2,
             },
         ],
-        group: { $oid: "6877c21e2849078caf344b43" },
+        group: { $oid: groupId },
     }));
 
     return { customers, orders };
 };
 
-const { orders, customers } = generateOrders(75);
+const { orders, customers } = generateOrders(75 , "68888ab6b5f0f15723813865");
 
 fs.writeFileSync("./script/json/orders.json", JSON.stringify(orders, null, 2), "utf-8");
 
