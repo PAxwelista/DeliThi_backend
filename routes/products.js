@@ -55,6 +55,7 @@ router.patch("/:id", async (req, res) => {
     }
 
     if (price) {
+        if (!Number(price)) return res.status(400).json({ result: false, error: "Price is not a integer" });
         updateData.price = price;
     }
 
