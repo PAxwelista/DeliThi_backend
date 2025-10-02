@@ -31,7 +31,7 @@ router.post("/signIn", async (req, res) => {
                 return jsonResponse(res, {
                     result: false,
                     code: error.statusCode,
-                    error: error.message,
+                    error: error?.message || error?.error,
                 });
             }
 

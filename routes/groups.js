@@ -16,7 +16,7 @@ router.get("/invite-token", async (req, res) => {
 
     if (!userGroup) 
         return jsonResponse(res, { result: false, error: "Not any group find with this id", code: 404 });
-    console.log(userId,userGroup.adminId)
+
     if (userId != userGroup.adminId)
         return jsonResponse(res, { result: false, error: "You are not the admin of the group", code: 403 });
 

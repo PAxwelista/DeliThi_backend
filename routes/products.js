@@ -26,6 +26,9 @@ router.post("/", async (req, res) => {
 
     if (!checkBody(req.body, ["name", "price"]))
         return res.status(400).json({ result: false, error: "Missing or empty fields" });
+
+    if (!Number(price)) return res.status(400).json({ result: false, error: "Price is not a integer" });
+
     const data = await Product.findOne({ group, name });
 
     if (data) return res.status(409).json({ result: false, error: "Product already exist" });
