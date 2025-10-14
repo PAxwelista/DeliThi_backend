@@ -146,8 +146,7 @@ router.post("/verifyEmail", async (req, res) => {
             return jsonResponse(res, { result: false, code: 400, error: "Expired or incorrect code" });
 
         const data = await User.updateOne({ username }, { emailVerified: true });
-
-        res.status(201).json({
+        res.status(200).json({
             result: true,
             data,
             login: buildLoginData(user),
@@ -181,7 +180,7 @@ router.patch("/updateEmail", async (req, res) => {
         email: createExactRegexInsensitive(email),
     });
 
-    if (UserData)  return res.status(400).json({ result: false, error: "Email already used" });
+    if (UserData) return res.status(400).json({ result: false, error: "Email already used" });
 
     const data = await User.updateOne({ username }, { email, emailVerified: false });
 

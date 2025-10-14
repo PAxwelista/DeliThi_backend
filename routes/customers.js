@@ -59,7 +59,7 @@ router.post("/", async (req, res) => {
     });
 });
 
-router.patch("/:id/", async (req, res) => {
+router.patch("/:id", async (req, res) => {
     const { name, locationName, area, email, phoneNumber } = req.query;
     const { id } = req.params;
 
