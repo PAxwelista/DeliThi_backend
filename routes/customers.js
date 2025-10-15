@@ -33,7 +33,9 @@ router.post("/", async (req, res) => {
     if (!checkBody(req.body, ["name", "locationName", "area"]))
         return jsonResponse(res, { result: false, error: "Missing or empty fields", code: 400 });
 
-    if ((test = await Customer.findOne({ name: createExactRegexInsensitive(name) })))
+    const customer = await Customer.findOne({group, name: createExactRegexInsensitive(name) })
+
+    if (customer)
         return jsonResponse(res, { result: false, error: "This customer name already exist", code: 409 });
 
     const locationData = await fetch(`https://api-adresse.data.gouv.fr/search/?q=${locationName}`);
