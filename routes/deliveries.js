@@ -98,6 +98,10 @@ router.patch("/:ID/removeOrder/:orderID" , async (req,res) =>{
 
     if (!data.modifiedCount) return  res.status(404).json({result : false , data})
 
+    const delivery = await Delivery.findOne({_id : ID})
+
+    if(delivery.orders.length === 0) {await Delivery.deleteOne({_id : ID})}
+
     res.status(200).json({result : true , data})
 })
 
