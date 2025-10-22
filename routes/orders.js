@@ -2,7 +2,7 @@ var express = require("express");
 var router = express.Router();
 const { checkBody, jsonResponse } = require("../modules");
 const { auth } = require("../middlewares");
-const { getOrders, getAllOrderAreas, createOrder } = require("../services/orders");
+const { getOrders, getAllOrderAreas, createOrder,updateOrdersInfos } = require("../services/orders");
 
 router.use(auth);
 

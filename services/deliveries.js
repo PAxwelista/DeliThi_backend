@@ -8,11 +8,16 @@ const getAllDeliveries = group => {
     });
 };
 
-const getDelivery = id=>{
-    return Delivery.findById(id)
-}
+const getDelivery = id => {
+    if (!id) return null;
+    return Delivery.findById(id);
+};
 
 const getDeliveryProducts = async id => {
+    console.log(id)
+    if (!id) return null;
+    //it is comming with a "undefined" word that is not false
+
     const data = await getDelivery(id).populate({
         path: "orders",
         populate: { path: "products.product" },
@@ -52,13 +57,13 @@ const updateState = (id, newState) => {
     return Delivery.updateOne({ _id: id }, { state: newState });
 };
 
-const removeOrders = (id,ordersID) => {
+const removeOrders = (id, ordersID) => {
     return Delivery.updateOne({ _id: id }, { $pull: { orders: { $in: ordersID } } });
 };
 
-const deleteDelivery = (id)=>{
+const deleteDelivery = id => {
     return Delivery.deleteOne({ _id: id });
-}
+};
 
 module.exports = {
     getAllDeliveries,
@@ -68,5 +73,5 @@ module.exports = {
     createDelivery,
     updateState,
     removeOrders,
-    deleteDelivery
+    deleteDelivery,
 };

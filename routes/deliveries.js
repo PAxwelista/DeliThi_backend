@@ -12,8 +12,7 @@ const {
     removeOrders,
     deleteDelivery,
 } = require("../services/deliveries");
-
-const Order = require("../models/orders");
+const { updateOrdersInfos } = require("../services/orders");
 
 router.use(auth);
 
@@ -24,10 +23,11 @@ router.get("/", async (req, res) => {
 });
 
 router.get("/:id/allProducts", async (req, res) => {
+    //the problem is right here, one time the id is undefined so this broke everthing. Maybe I have to put a middleware that test the id
     if (!req.params.id) return res.status(400).json({ result: false, error: "Missing or empty fields" });
-
+    console.log(req.params.id)
     const totalProduct = await getDeliveryProducts(req.params.id);
-
+    console.log("2")
     res.status(200).json({ result: true, totalProduct });
 });
 
@@ -74,13 +74,13 @@ router.patch("/:ID/removeOrders", async (req, res) => {
 
     const deliveryData = await removeOrders(ID, ordersID);
 
-    if (!data.modifiedCount) return res.status(404).json({ result: false, data });
+    if (!deliveryData.modifiedCount) return res.status(404).json({ result: false, data });
 
     const delivery = await getDelivery(ID);
 
     if (delivery.orders.length === 0) await deleteDelivery(ID);
 
-    const orderData = await Order.updateMany({ _id: { $in: ordersID } }, { $set: { state: newState } });
+    const orderData = await updateOrdersInfos(ordersID, { state: "pending" });
 
     res.status(200).json({ result: true, data: { deliveryData, orderData } });
 });

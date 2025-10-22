@@ -99,15 +99,15 @@ describe("Deliveries route", () => {
         });
     });
 
-    // describe("PATCH /:ID/removeOrder" , ()=>{
-    //     it("should remove an order" , async()=>{
-    //         const res = await request(app)
-    //         .patch(`/deliveries/${deliveryID}/removeOrders`)
-    //         .send({ordersID})
-    //         .set("Authorization", `Bearer test`)
-    //         .expect(200)
+    describe("PATCH /:ID/removeOrder" , ()=>{
+        it("should remove an order" , async()=>{
+            const res = await request(app)
+            .patch(`/deliveries/${deliveryID}/removeOrders`)
+            .send({ordersID})
+            .set("Authorization", `Bearer test`)
+            .expect(200)
 
-    //         expect(res.body.result).toBeTruthy()
-    //     })
-    // })
+            expect(res.body.result).toBeTruthy()
+        })
+    })
 });
