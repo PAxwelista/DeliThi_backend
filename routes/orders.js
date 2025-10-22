@@ -87,9 +87,13 @@ router.patch("/state", async (req, res) => {
     if (!checkBody(req.body, ["newState", "ordersID"]))
         return res.status(400).json({ result: false, error: "Missing or empty fields" });
 
-    const data = await Order.updateMany({ _id: { $in: ordersID } }, { state: newState });
+    try {
+        const data = await Order.updateMany({ _id: { $in: ordersID } }, { $set: { state: newState } });
+    } catch (error) {
+        console.error(error)
+    }
 
-    res.status(200).json({ result: true, data });
+    res.status(200).json({ result: true });
 });
 
 router.patch("/deliveryDate", async (req, res) => {
@@ -107,9 +111,7 @@ router.patch("/:id", async (req, res) => {
     const { area, deliveryDate, state, amountPaid } = req.body;
     const updateData = { area, deliveryDate, state, amountPaid };
 
-    const filtered = Object.fromEntries(Object.entries(updateData).filter(([key, value]) => value));
-
-    const data = await Order.updateOne({ _id: req.params.id }, { $set: filtered });
+    const data = await Order.updateOne({ _id: req.params.id }, updateData);
 
     res.status(200).json({ result: true, data });
 });

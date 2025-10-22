@@ -7,6 +7,8 @@ const { createCodeAndExpireDate } = require("./createCodeAndExpireDate");
 const { buildLoginData } = require("./buildLoginData");
 const {createExactRegexInsensitive} = require("./createExactRegexInsensitive")
 const {isValidEmail} = require("./emailValidator")
+const {extractProductsFromOrders} = require("./extractProductsFromOrders")
+const {combineProducts} = require("./combineProducts")
 module.exports = {
     getShorterOrder,
     checkBody,
@@ -16,5 +18,7 @@ module.exports = {
     createCodeAndExpireDate,
     buildLoginData,
     createExactRegexInsensitive,
-    isValidEmail
+    isValidEmail,
+    extractProductsFromOrders,
+    combineProducts
 };
