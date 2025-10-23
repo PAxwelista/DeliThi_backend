@@ -1,4 +1,8 @@
+require("dotenv").config();
 
+if (process.env.NODE_ENV != "test") {
+    require("./models/connection");
+}
 
 var express = require("express");
 var path = require("path");
@@ -12,13 +16,13 @@ var deliveriesRouter = require("./routes/deliveries");
 var usersRouter = require("./routes/users");
 var directionRouter = require("./routes/direction");
 var groupRouter = require("./routes/groups");
-var refresTokenRouter= require("./routes/refreshToken");
+var refresTokenRouter = require("./routes/refreshToken");
 
 var app = express();
 
-const cors = require('cors');
+const cors = require("cors");
 app.use(cors());
- 
+
 app.use(logger("dev"));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
