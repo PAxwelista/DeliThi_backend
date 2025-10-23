@@ -47,7 +47,7 @@ router.delete("/:product", async (req, res) => {
 });
 
 router.patch("/:id", async (req, res) => {
-    const { name, price } = req.query;
+    const { name, price ,capacity} = req.query;
     const updateData = {};
 
     if (name) {
@@ -57,6 +57,11 @@ router.patch("/:id", async (req, res) => {
     if (price) {
         if (!Number(price)) return res.status(400).json({ result: false, error: "Price is not a integer" });
         updateData.price = price;
+    }
+
+    if (capacity){
+        if (!Number(capacity)) return res.status(400).json({ result: false, error: "capacity is not a integer" });
+        updateData.capacity = capacity;
     }
 
     const data = await Product.updateOne({ _id: req.params.id }, { $set: updateData });
