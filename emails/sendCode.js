@@ -4,8 +4,8 @@ const { Resend } = require("resend");
 
 const resend = new Resend(process.env.RESEND_API);
 
-const sendLoginCode = async (to, code) => {
-    const templatePath = path.join(__dirname, "templates", "loginCode.html");
+const sendCode = async (to, code , template) => {
+    const templatePath = path.join(__dirname, "templates", template);
     let html = fs.readFileSync(templatePath, "utf8");
 
     html = html.replace("{{code}}", code);
@@ -20,4 +20,4 @@ const sendLoginCode = async (to, code) => {
     return { data, error };
 };
 
-module.exports = sendLoginCode;
+module.exports = sendCode;

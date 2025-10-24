@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-const loginCode = mongoose.Schema({
+const code = mongoose.Schema({
     code: String,
     createdAt: Date,
     expiresAt: Date,
@@ -12,7 +12,8 @@ const userSchema = mongoose.Schema({
     role: String,
     emailVerified: Boolean,
     email: String,
-    loginCode: loginCode,
+    loginCode: code,
+    forgetPasswordCode : code
 });
 
 const User = mongoose.model("users", userSchema);

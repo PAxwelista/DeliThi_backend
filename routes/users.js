@@ -11,7 +11,7 @@ const {
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 const JWT_SECRET = process.env.JWT_SECRET;
-const sendLoginCode = require("../emails/sendLoginCode");
+const sendCode = require("../emails/sendCode");
 const { deleteUser } = require("../services/userService");
 
 const User = require("../models/users");
@@ -113,7 +113,7 @@ router.post("/sendNewEmailVerifCode", async (req, res) => {
 
     const loginCode = createCodeAndExpireDate();
 
-    const { data: loginData, error } = await sendLoginCode(user.email, loginCode.code);
+    const { data: loginData, error } = await sendCode(user.email, loginCode.code,"loginCode.html");
 
     const data = await User.updateOne({ username }, { loginCode });
 
@@ -188,6 +188,56 @@ router.patch("/updateEmail", async (req, res) => {
         return jsonResponse(res, { result: false, error: "Nobody with this username", code: 400 });
 
     return jsonResponse(res, { data });
+});
+
+router.post("/forgotPassword", async (req, res) => {
+    if (!checkBody(req.body, ["email"]))
+        return jsonResponse(res, { result: false, error: "Missing or empty fields", code: 400 });
+
+    const {email} = req.body
+    const user =await User.findOne({ email: createExactRegexInsensitive(email) });
+
+    if (!user) return jsonResponse(res, { result: false, error: "Email is not valid", code: 403 });
+
+    if (!user.emailVerified) return jsonResponse(res, { result: false, error: "Email not verified yet", code: 403 });
+
+    const forgetPasswordCode = createCodeAndExpireDate();
+
+    const { data: loginData, error } = await sendCode(user.email, forgetPasswordCode.code , "forgotPasswordCode.html");
+
+    const data = await User.updateOne({ _id: user._id }, { forgetPasswordCode });
+
+    if (error)
+        return jsonResponse(res, {
+            result: false,
+            code: error.statusCode,
+            error: error.message,
+        });
+
+    return jsonResponse(res, {
+        data,
+    });
+});
+
+router.patch("/password", async (req, res) => {
+    if (!checkBody(req.body, ["newPassword", "forgetPasswordCode", "email"]))
+        return jsonResponse(res, { result: false, error: "Missing or empty fields", code: 400 });
+
+    const { newPassword, forgetPasswordCode, email } = req.body;
+
+    const user = await User.findOne({ email: createExactRegexInsensitive(email) });
+    
+    if (!user) return jsonResponse(res, { result: false, error: "Email is not valid", code: 403 });
+
+    if (!user.emailVerified) return jsonResponse(res, { result: false, error: "Email not verified yet", code: 403 });
+    if (user.forgetPasswordCode.code != forgetPasswordCode|| new Date() > user.forgetPasswordCode.expiresAt)
+        return jsonResponse(res, { result: false, error: "Code not correct", code: 403 });
+
+    const data = await User.updateOne({ _id: user._id }, { password: bcrypt.hashSync(newPassword, 10) });
+
+    return jsonResponse(res, {
+        data,
+    });
 });
 
 module.exports = router;
