@@ -25,9 +25,7 @@ router.get("/", async (req, res) => {
 router.get("/:id/allProducts", async (req, res) => {
     //the problem is right here, one time the id is undefined so this broke everthing. Maybe I have to put a middleware that test the id
     if (!req.params.id) return res.status(400).json({ result: false, error: "Missing or empty fields" });
-    console.log(req.params.id)
     const totalProduct = await getDeliveryProducts(req.params.id);
-    console.log("2")
     res.status(200).json({ result: true, totalProduct });
 });
 
