@@ -10,11 +10,11 @@ router.post("/order", async (req, res) => {
     if (!checkBody(req.body, ["waypointsCoords"]))
         return res.status(400).json({ result: false, error: "Missing or empty fields" });
 
-    const { waypointsCoords ,openRouteApi = true} = req.body;
+    const { waypointsCoords ,useOpenRouteApi = true} = req.body;
     const coordsWaypoints = waypointsCoords.map(v => [v.longitude, v.latitude]);
     let order;
 
-    if (coordsWaypoints.length > 50 || !openRouteApi) {
+    if (coordsWaypoints.length > 50 || !useOpenRouteApi) {
         // openRouteApi is not able to handle when there is more than 50 locations
 
         order = getShorterOrder(matrixFromCoords(coordsWaypoints));
