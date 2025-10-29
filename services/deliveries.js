@@ -14,7 +14,6 @@ const getDelivery = id => {
 };
 
 const getDeliveryProducts = async id => {
-    console.log(id)
     if (!id) return null;
     //it is comming with a "undefined" word that is not false
 
