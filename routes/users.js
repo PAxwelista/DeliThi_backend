@@ -26,7 +26,7 @@ router.post("/signIn", async (req, res) => {
 
     if (user && bcrypt.compareSync(password, user.password)) {
         if (!user.emailVerified) {
-            const { data: dataSendLoginCode, error } = await sendLoginCode(user.email, user.loginCode.code);
+            const { data: dataSendLoginCode, error } = await sendCode(user.email, user.loginCode.code,"loginCode.html");
             if (error) {
                 return jsonResponse(res, {
                     result: false,

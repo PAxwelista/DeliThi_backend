@@ -29,6 +29,21 @@ const getAllOrderAreas = async group => {
     return [...new Set(data.map(v => v.area))];
 };
 
+const getAllOrderAreasObj = async group => {
+    const data = await Order.find({ group });
+
+    const areas = [...new Set(data.map(v => v.area))];
+
+    return areas.map(v => {
+        const state = data.find(order=>v === order.area && order.state === "processing") ? "processing" : "pending"
+        return {
+            name: v,
+            nbPending: data.filter(order => order.area === v && order.state === state).length,
+            state,
+        };
+    });
+};
+
 const createOrder = (group, { products, orderer, customerId, area }) => {
     const newOrder = new Order({
         products,
@@ -50,4 +65,4 @@ const updateOrdersInfos = (ordersID, { area, deliveryDate, state, amountPaid }) 
     return Order.updateMany({ _id: { $in: ordersID } }, updateData);
 };
 
-module.exports = { getOrders, getAllOrderAreas, createOrder, updateOrdersInfos };
+module.exports = { getOrders, getAllOrderAreas, getAllOrderAreasObj, createOrder, updateOrdersInfos };

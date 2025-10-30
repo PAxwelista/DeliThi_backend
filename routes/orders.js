@@ -2,7 +2,7 @@ var express = require("express");
 var router = express.Router();
 const { checkBody, jsonResponse } = require("../modules");
 const { auth } = require("../middlewares");
-const { getOrders, getAllOrderAreas, createOrder,updateOrdersInfos } = require("../services/orders");
+const { getOrders, getAllOrderAreas,getAllOrderAreasObj, createOrder,updateOrdersInfos } = require("../services/orders");
 
 router.use(auth);
 
@@ -18,8 +18,9 @@ router.get("/", async (req, res) => {
 router.get("/allAreas", async (req, res) => {
     const { group } = req;
     const areas = await getAllOrderAreas(group);
+    const areasObj = await getAllOrderAreasObj(group)
 
-    jsonResponse(res, { data: areas, key: "areas" });
+    res.status(200).json({ result: true, areas,areasObj });
 });
 
 router.get("/filter", async (req, res) => {
